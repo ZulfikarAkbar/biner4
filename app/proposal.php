@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class proposal extends Model
 {
-    protected $fillable = ['uploader','prop_file', 'institusi'];
+    protected $fillable = ['uploader','prop_file', 'institusi','name'];
     public function users()
     {
         return $this->belongsTo('App\User', 'id_user');

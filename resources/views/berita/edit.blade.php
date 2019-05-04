@@ -54,14 +54,14 @@
                 <div class="card-header">{{ __('Post berita terbaru') }}</div>
 
                 <div class="card-body">
-                    <form enctype="multipart/form-data" method="POST" action="{{ route('berita.update', $berita->id) }}">
+                    <form enctype="multipart/form-data" method="POST" action="/berita/{{$berita->slug}}">
                     {{ csrf_field() }}
 
                         <div class="form-group row">
                             <label for="kegiatan" class="col-md-4 col-form-label text-md-right">{{ __('Nama Kegiatan') }}</label>
 
                             <div class="col-md-6">
-                                <input id="kegiatan" type="text" class="form-control{{ $errors->has('kegiatan') ? ' is-invalid' : '' }}" name="kegiatan" value="{{ old('kegiatan') }}" required autofocus>
+                                <input id="kegiatan" type="text" class="form-control{{ $errors->has('kegiatan') ? ' is-invalid' : '' }}" name="kegiatan" value="{{ old('kegiatan') ? old('kegiatan') : $berita->kegiatan }}" required autofocus>
 
                                 @if ($errors->has('kegiatan'))
                                     <span class="invalid-feedback" role="alert">
@@ -75,7 +75,7 @@
                             <label for="tanggal" class="col-md-4 col-form-label text-md-right">{{ __('Tanggal Kegiatan') }}</label>
 
                             <div class="col-md-6">
-                                <input id="tanggal" type="date" class="form-control{{ $errors->has('tanggal') ? ' is-invalid' : '' }}" name="tanggal" value="{{ old('tanggal') }}" required autofocus>
+                                <input id="tanggal" type="date" class="form-control{{ $errors->has('tanggal') ? ' is-invalid' : '' }}" name="tanggal" value="{{ old('tanggal') ? old('tanggal') : $berita->tanggal }}" required autofocus>
 
                                 @if ($errors->has('tanggal'))
                                     <span class="invalid-feedback" role="alert">
@@ -89,7 +89,7 @@
                             <label for="gambar" class="col-md-4 col-form-label text-md-right">{{ __('Gambar kegiatan') }}</label>
 
                             <div class="col-md-6">
-                                <input id="gambar" type="file" class="form-control{{ $errors->has('gambar') ? ' is-invalid' : '' }}" name="gambar" value="{{ old('gambar') }}" required autofocus>
+                                <input id="gambar" type="file" class="form-control{{ $errors->has('gambar') ? ' is-invalid' : '' }}" name="gambar" value="{{ old('gambar') ? old('gambar') : $berita->gambar }}" required autofocus>
                                 <p>*.jpg</p>
                                 @if ($errors->has('gambar'))
                                     <span class="invalid-feedback" role="alert">
@@ -103,8 +103,7 @@
                             <label for="deskripsi" class="col-md-4 col-form-label text-md-right">{{ __('Deskripsi') }}</label>
 
                             <div class="col-md-6">
-                            <textarea id="deskripsi" type="text" class="form-control{{ $errors->has('deskripsi') ? ' is-invalid' : '' }}" name="deskripsi" value="{{ old('deskripsi') }}" required autofocus>
-                                </textarea>
+                            <textarea id="deskripsi" type="text" class="form-control{{ $errors->has('deskripsi') ? ' is-invalid' : '' }}" name="deskripsi" required autofocus>{{ old('deskripsi') ? old('deskripsi') : $berita->deskripsi }}</textarea>
                                 @if ($errors->has('deskripsi'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('deskripsi') }}</strong>
@@ -118,6 +117,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Submit') }}
                                 </button>
+                                <a class="btn btn-light" href="/berita" style="border: solid 1px;">
+                                    {{ __('Batal') }}
+                                </a>
                             </div>
                         </div>
                     </form>

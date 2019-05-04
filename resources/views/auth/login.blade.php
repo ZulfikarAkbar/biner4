@@ -53,7 +53,11 @@
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
                     </div>
-
+                    <div class="form-group">
+                        {!! NoCaptcha::renderJs() !!}
+                        {!! NoCaptcha::display() !!}
+                        <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
+                    </div>
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
                             Masuk

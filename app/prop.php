@@ -11,7 +11,8 @@ class prop extends Model
     protected $fillable =
     [ 'uploader',
       'prop_file',
-      'institusi'
+      'institusi',
+      'name'
     ];
     public function users()
     {

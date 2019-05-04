@@ -11,7 +11,8 @@ class berita extends Model
     [ 'kegiatan',
       'gambar',
       'tanggal',
-      'deskripsi'
+      'deskripsi',
+      'slug'
     ];
     public function isOwner()
 	{

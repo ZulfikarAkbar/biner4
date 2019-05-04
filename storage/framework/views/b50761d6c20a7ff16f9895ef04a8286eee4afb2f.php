@@ -54,7 +54,13 @@
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
                     </div>
+                    <div class="form-group">
+                        <?php echo NoCaptcha::renderJs(); ?>
 
+                        <?php echo NoCaptcha::display(); ?>
+
+                        <span class="text-danger"><?php echo e($errors->first('g-recaptcha-response')); ?></span>
+                    </div>
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
                             Masuk
@@ -100,5 +106,4 @@
 
 </body>
 </html>
-
-<?php /* /home/asuspc/biner4.0/resources/views/auth/login.blade.php */ ?>
+<?php /**PATH /home/asuspc/biner4.0/resources/views/auth/login.blade.php ENDPATH**/ ?>

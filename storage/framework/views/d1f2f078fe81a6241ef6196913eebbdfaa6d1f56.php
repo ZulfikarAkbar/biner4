@@ -16,7 +16,8 @@
 	<link type="text/css" rel="stylesheet" href="ca/css/bootstrap.min.css" />
 
 	<!-- Owl Carousel -->
-	<link type="text/css" rel="stylesheet" href="ca/css/owl.carousel.css" />
+
+    <link type="text/css" rel="stylesheet" href="<?php echo e(asset('css/carousel.css')); ?>" />
 	<link type="text/css" rel="stylesheet" href="ca/css/owl.theme.default.css" />
 
 	<!-- Magnific Popup -->
@@ -58,8 +59,8 @@
 					<!-- Logo -->
 					<div class="navbar-brand">
 						<a href="<?php echo e(url('/')); ?>">
-							<img class="logo" src="ca/img/logo.png" alt="logo">
-							<img class="logo-alt" src="ca/img/logo-alt.png" alt="logo">
+                            <img  class="logo img-responsive" src="<?php echo e(asset('logo.png')); ?>" alt="logo">
+                            <!-- <img class="logo-alt img-responsive" src="<?php echo e(asset('logo.png')); ?>" alt="logo"> -->
 						</a>
 					</div>
 					<!-- /Logo -->
@@ -75,15 +76,6 @@
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<li><a href="<?php echo e(url('/')); ?>">Home</a></li>
 					<li><a href="#about">Acara</a></li>
-					<!-- <li><a href="#portfolio">Portfolio</a></li>
-					<li><a href="#service">Services</a></li>
-					<li><a href="#pricing">Prices</a></li>
-					<li><a href="#team">Team</a></li>
-					<li class="has-dropdown"><a href="#blog">Blog</a>
-						<ul class="dropdown">
-							<li><a href="blog-single.html">blog post</a></li>
-						</ul>
-					</li> -->
 					<li><a href="#contact">Hubungi kami</a></li>
                     <li><a href="<?php echo e(route('login')); ?>"><i class="fa fa-user"> login</i></a></li>
 				</ul>
@@ -99,11 +91,11 @@
 				<div class="row">
 
 					<!-- home content -->
-					<div class="col-md-10 col-md-offset-1">
+					<div class="col-md-10 col-md-offset-1" style="text-align:center">
 						<div class="home-content">
-							<h1 class="white-text">BINER 4.0</h1>
-							<p class="white-text">Technology and Innovation in Millenial Era
-							</p>
+                            <img class="img-responsive" width="100%" height="100%" class="logo" src="<?php echo e(asset('logo.png')); ?>" alt="logo">
+							<!-- <p class="white-text">Technology and Innovation in Millenial Era
+							</p> -->
                             <!-- <button class="white-btn">Get Started!</button> -->
                             <?php if(Route::has('register')): ?>
                             <a href="<?php echo e(route('register')); ?>" class="btn main-btn">Daftar sekarang</a>
@@ -191,22 +183,24 @@
 				<div class="section-header text-center">
 					<h2 class="title">Info Terkini</h2>
 				</div>
-				<!-- /Section header -->
-                <?php $__currentLoopData = $welcome; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $welcome): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <!-- /Section header -->
+                <?php $__currentLoopData = $berita; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $berita): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php if($berita==null): ?>
+                <?php endif; ?>
 				<!-- blog -->
 				<div class="col-md-4">
 					<div class="blog">
-						<div class="blog-img">
-                        <img class="img-responsive" src="<?php echo e(asset('storage/upload_gambar/'.$welcome->gambar)); ?>" alt="">
+						<div class="blog-img" style="text-align:center">
+                        <img class="img-responsive" width=350px height=300px src="<?php echo e(asset('storage/upload_gambar/'.$berita->gambar)); ?>" alt="">
 						</div>
 						<div class="blog-content">
 							<ul class="blog-meta">
-								<li><i class="fa fa-clock-o"></i><?php echo e($welcome->tanggal); ?></li>
+								<li><i class="fa fa-clock-o"></i><?php echo e($berita->tanggal); ?></li>
 							</ul>
-							<h3><?php echo e($welcome->kegiatan); ?></h3>
-                            <p><?php echo e(substr($welcome->deskripsi,0,30)); ?></p>
+							<h3><?php echo e($berita->kegiatan); ?></h3>
+                            <p><?php echo e(substr($berita->deskripsi,0,30)); ?></p>
                             <!-- <a href="blog-single.html" data-toggle="modal" data-target="#ModalExample">Read more</a> -->
-
+                            <a class="btn btn-primary" href="/berita/<?php echo e($berita->slug); ?>">Lihat selengkapnya</a>
 						</div>
 					</div>
                 </div>
@@ -246,7 +240,7 @@
 				<div class="col-sm-4">
 					<div class="contact">
 						<i class="fa fa-phone"></i>
-						<h3>Nomor Handphone</h3>
+						<h3>Phone</h3>
 						<p>08121213123</p>
 					</div>
 				</div>
@@ -257,7 +251,7 @@
 					<div class="contact">
 						<i class="fa fa-envelope"></i>
 						<h3>Email</h3>
-						<p>email@support.com</p>
+						<p>binerunj@gmail.com</p>
 					</div>
 				</div>
 				<!-- /contact -->
@@ -271,18 +265,6 @@
 					</div>
 				</div>
 				<!-- /contact -->
-
-				<!-- contact form -->
-				<!-- <div class="col-md-8 col-md-offset-2">
-					<form class="contact-form">
-						<input type="text" class="input" placeholder="Name">
-						<input type="email" class="input" placeholder="Email">
-						<input type="text" class="input" placeholder="Subject">
-						<textarea class="input" placeholder="Message"></textarea>
-						<button class="main-btn">Send message</button>
-					</form>
-				</div> -->
-				<!-- /contact form -->
 
 			</div>
 			<!-- /Row -->
@@ -305,16 +287,12 @@
 
 				<div class="col-md-12">
 
-					<!-- footer logo -->
-					<div class="footer-logo">
-						<a href="index.html"><img src="ca/img/logo-alt.png" alt="logo"></a>
-					</div>
-					<!-- /footer logo -->
+
 
 					<!-- footer follow -->
 					<ul class="footer-follow">
 
-						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="https://instagram.com/default_unj"><i class="fa fa-instagram"></i></a></li>
 
 					</ul>
 					<!-- /footer follow -->
@@ -356,7 +334,8 @@
 	<script type="text/javascript" src="ca/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="ca/js/owl.carousel.min.js"></script>
 	<script type="text/javascript" src="ca/js/jquery.magnific-popup.js"></script>
-	<script type="text/javascript" src="ca/js/main.js"></script>
+    <script type="text/javascript" src="ca/js/main.js"></script>
+    <script type="text/javascript" src="<?php echo e(asset('js/carousel.js')); ?>"></script>
 
 </body>
 

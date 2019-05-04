@@ -11,8 +11,10 @@ class WelcomeController extends Controller
 {
     public function index()
     {
-        $welcome = welcome::with('beritas')->get();
-        return view('welcome', compact('welcome'));
+        $berita = berita::get();;
+        // $welcome = welcome::with('beritas')->get();
+        return view('welcome', compact('berita'));
+
     }
 
 

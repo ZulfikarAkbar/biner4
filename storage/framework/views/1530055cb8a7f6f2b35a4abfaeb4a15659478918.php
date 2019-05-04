@@ -68,7 +68,7 @@
                                     <p>
                                         <strong>Kamu berhasil terdaftar pada acara Seminar BINER 4.0!</strong>
                                         <br><br>
-                                        Segera selesaikan pembayaran!
+                                        <!-- Segera selesaikan pembayaran!
                                         <br><br>
                                             Nama Bank             : <strong>Mandiri</strong>
                                             <br>
@@ -76,7 +76,7 @@
                                             <br>
                                             No. Rekening          : <strong>442184214</strong>
                                             <br>
-                                            Konfirmasi pembayaran : <strong>087808085169</strong>
+                                            Konfirmasi pembayaran : <strong>087808085169</strong> -->
                                     </p>
                                 </div>
                         </div>
@@ -86,7 +86,7 @@
                                     <p>
                                         <strong>Kamu berhasil terdaftar pada acara Workshop Batch I BINER 4.0!</strong>
                                         <br><br>
-                                        Segera selesaikan pembayaran!
+                                        <!-- Segera selesaikan pembayaran!
                                         <br><br>
                                             Nama Bank             : <strong>Mandiri</strong>
                                             <br>
@@ -94,7 +94,7 @@
                                             <br>
                                             No. Rekening          : <strong>442184214</strong>
                                             <br>
-                                            Konfirmasi pembayaran : <strong>087808085169</strong>
+                                            Konfirmasi pembayaran : <strong>087808085169</strong> -->
                                     </p>
                                 </div>
                         </div>
@@ -104,7 +104,7 @@
                                     <p>
                                         <strong>Kamu berhasil terdaftar pada acara Workshop Batch II BINER 4.0!</strong>
                                         <br><br>
-                                        Segera selesaikan pembayaran!
+                                        <!-- Segera selesaikan pembayaran!
                                         <br><br>
                                             Nama Bank             : <strong>Mandiri</strong>
                                             <br>
@@ -112,7 +112,7 @@
                                             <br>
                                             No. Rekening          : <strong>442184214</strong>
                                             <br>
-                                            Konfirmasi pembayaran : <strong>087808085169</strong>
+                                            Konfirmasi pembayaran : <strong>087808085169</strong> -->
                                     </p>
                                 </div>
                         </div>
@@ -122,7 +122,7 @@
                                     <p>
                                         <strong>Kamu berhasil terdaftar pada acara Bussiness Case Competition BINER 4.0!</strong>
                                         <br><br>
-                                        Segera selesaikan pembayaran!
+                                        <!-- Segera selesaikan pembayaran!
                                         <br><br>
                                             Nama Bank             : <strong>Mandiri</strong>
                                             <br>
@@ -130,7 +130,7 @@
                                             <br>
                                             No. Rekening          : <strong>442184214</strong>
                                             <br>
-                                            Konfirmasi pembayaran : <strong>087808085169</strong>
+                                            Konfirmasi pembayaran : <strong>087808085169</strong> -->
                                     </p>
                                 </div>
                         </div>

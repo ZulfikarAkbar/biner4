@@ -59,6 +59,20 @@
 
 
                         <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Nama Lengkap Ketua')); ?></label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control<?php echo e($errors->has('name') ? ' is-invalid' : ''); ?>" name="name" value="<?php echo e(old('name')); ?>" required autofocus>
+
+                                <?php if($errors->has('name')): ?>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong><?php echo e($errors->first('name')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="uploader" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Nama Team')); ?></label>
 
                             <div class="col-md-6">
@@ -120,13 +134,15 @@
 
 
             <!-- Sticky Footer -->
-            <footer class="sticky-footer">
-                <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright © BINER 4.0 2019 | DEFAULT</span>
-                </div>
-                </div>
-            </footer>
+        <footer class="sticky-footer">
+            <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                © Hak cipta BINER 4.0 • Made with
+                <span style="color:#e25555"><i class="fa fa-heart" aria-hidden="true"></i></span>
+                in Jakarta
+            </div>
+            </div>
+        </footer>
 
         </div>
         <!-- /.content-wrapper -->

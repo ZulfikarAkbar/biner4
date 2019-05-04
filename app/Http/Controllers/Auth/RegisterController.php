@@ -54,8 +54,10 @@ class RegisterController extends Controller
             'institusi'=>['required'],
             'role'=>['required'],
             'phone'=>['required'],
+            'bukti'=>['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'g-recaptcha-response' => 'required|captcha',
 
         ]);
     }
@@ -68,14 +70,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $request = request();
+        $gambar = $request->file('bukti');
+        $file_gambar = \Carbon\Carbon::now()->format('d-m-Y') . '-' .  $gambar->getClientOriginalName();
+        $request->file('bukti')->storeAs('public/upload_bukti_bayar', $file_gambar);
         return User::create([
             'name' => $data['name'],
             'institusi'=>$data['institusi'],
             'role'=>$data['role'],
             'phone'=>$data['phone'],
+            'bukti'=>$file_gambar,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-
         ]);
 
 

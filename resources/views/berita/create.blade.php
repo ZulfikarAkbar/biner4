@@ -54,7 +54,7 @@
                 <div class="card-header">{{ __('Post berita terbaru') }}</div>
 
                 <div class="card-body">
-                    <form enctype="multipart/form-data" method="POST" action="{{ route('berita.store') }}">
+                    <form enctype="multipart/form-data" method="post" action="/berita/{berita}">
                     {{ csrf_field() }}
 
                         <div class="form-group row">
@@ -103,8 +103,7 @@
                             <label for="deskripsi" class="col-md-4 col-form-label text-md-right">{{ __('Deskripsi') }}</label>
 
                             <div class="col-md-6">
-                            <textarea id="deskripsi" type="text" class="form-control{{ $errors->has('deskripsi') ? ' is-invalid' : '' }}" name="deskripsi" value="{{ old('deskripsi') }}" required autofocus>
-                                </textarea>
+                            <textarea id="deskripsi" type="text" class="form-control{{ $errors->has('deskripsi') ? ' is-invalid' : '' }}" name="deskripsi" value="{{ old('deskripsi') }}" required autofocus></textarea>
                                 @if ($errors->has('deskripsi'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('deskripsi') }}</strong>

@@ -60,6 +60,7 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th>Nama</th>
                                     <th>Nama Team</th>
                                     <th>Institusi</th>
                                     <th>Proposal</th>
@@ -67,6 +68,7 @@
                             </thead>
                             <tfoot>
                                 <tr>
+                                    <th>Nama</th>
                                     <th>Nama Team</th>
                                     <th>Institusi</th>
                                     <th>Proposal</th>
@@ -75,6 +77,7 @@
                             <tbody>
                                 @foreach($prop as $proposal)
                                     <tr>
+                                        <td>{{ $proposal->name }}</td>
                                         <td>{{ $proposal->uploader }}</td>
                                         <td>{{ $proposal->institusi }}</td>
                                         <td><a class="btn btn-success" href="{{asset('storage/upload_proposal/'.$proposal->prop_file)}}" download="{{asset('storage/upload_proposal/'.$proposal->prop_file)}}">Download</td>

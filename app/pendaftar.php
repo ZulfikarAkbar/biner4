@@ -10,7 +10,7 @@ class pendaftar extends Model
 {
     protected $table = 'users';
     protected $fillable = [
-        'name', 'email', 'password', 'phone', 'institusi'
+        'name', 'email', 'password', 'phone', 'institusi','bukti','role'
     ];
     public function users()
     {

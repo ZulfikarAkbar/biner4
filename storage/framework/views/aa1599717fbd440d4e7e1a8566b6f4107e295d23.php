@@ -49,7 +49,7 @@
         <div id="content-wrapper">
             <div class="container-fluid">
             <!-- DataTables Example -->
-            <a class="btn btn-success" href="/berita/create"><i class="fa fa-plus"> Buat berita</i></a>
+            <a class="btn btn-success" href="/berita/buat_berita"><i class="fa fa-plus"> Buat berita</i></a>
             <br><br>
             <div class="card mb-3">
                 <div class="card-header">
@@ -61,8 +61,11 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th>No</th>
+                                    <th>Tanggal dibuat</th>
+                                    <th>Tanggal diupdate</th>
                                     <th>Nama Kegiatan</th>
-                                    <th>Tanggal</th>
+                                    <th>Tanggal Kegiatan</th>
                                     <th>Gambar</th>
                                     <th>Deskripsi</th>
                                     <th>Action</th>
@@ -71,31 +74,40 @@
                             </thead>
                             <tfoot>
                                 <tr>
+                                    <th>No</th>
+                                    <th>Tanggal dibuat</th>
+                                    <th>Tanggal diupdate</th>
                                     <th>Nama Kegiatan</th>
-                                    <th>Tanggal</th>
+                                    <th>Tanggal Kegiatan</th>
                                     <th>Gambar</th>
                                     <th>Deskripsi</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <?php $__currentLoopData = $berita; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $berita): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($berita->count()): ?>
+                                <?php $__currentLoopData = $berita; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $berita): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
+                                        <td><?php echo e(++$key); ?></td>
+                                        <td><?php echo e(date('d-m-Y, H:i', strtotime($berita->created_at))); ?></td>
+                                        <td><?php echo e(date('d-m-Y, H:i', strtotime($berita->updated_at))); ?></td>
                                         <td><?php echo e($berita->kegiatan); ?></td>
                                         <td><?php echo e($berita->tanggal); ?></td>
                                         <td><img width="250px" height="150px" src="<?php echo e(asset('storage/upload_gambar/'.$berita->gambar)); ?>" alt=""></td>
-                                        <td><?php echo e(substr($berita->deskripsi,0,20)); ?></td>
+                                        <td style="text-align:justify"><?php echo e(substr($berita->deskripsi,0,20)); ?></td>
                                         <td>
-                                            <a class="btn btn-dark" href="<?php echo e(route('berita.edit',$berita->id)); ?>"><i class="fa fa-edit"> edit</i></a>
+                                            <a class="btn btn-primary" href="/berita/<?php echo e($berita->slug); ?>/edit_berita"><i class="fa fa-edit"></i></a>
 
                                             <form action="<?php echo e(route('berita.destroy', $berita->id)); ?>" method="post">
                                                 <?php echo csrf_field(); ?>
                                                 <?php echo method_field('DELETE'); ?>
-                                                <button ><i class="fa fa-eraser"> Hapus</i></button>
+                                                <br>
+                                                <button type="hidden" class="btn-danger" onclick="return confirm('Anda yakin menghapus post ini?')"><i class="fa fa-eraser"></i></button>
                                             </form>
                                         </td>
                                     </tr>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endif; ?>
                             </tbody>
                         </table>
                     </div>

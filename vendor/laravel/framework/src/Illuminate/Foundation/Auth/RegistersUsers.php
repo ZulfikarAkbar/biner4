@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
 
-
 trait RegistersUsers
 {
     use RedirectsUsers;
@@ -37,7 +36,6 @@ trait RegistersUsers
 
         return $this->registered($request, $user)
                         ?: redirect($this->redirectPath());
-
     }
 
     /**

@@ -16,7 +16,8 @@
 	<link type="text/css" rel="stylesheet" href="ca/css/bootstrap.min.css" />
 
 	<!-- Owl Carousel -->
-	<link type="text/css" rel="stylesheet" href="ca/css/owl.carousel.css" />
+
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/carousel.css') }}" />
 	<link type="text/css" rel="stylesheet" href="ca/css/owl.theme.default.css" />
 
 	<!-- Magnific Popup -->
@@ -58,8 +59,8 @@
 					<!-- Logo -->
 					<div class="navbar-brand">
 						<a href="{{ url('/') }}">
-							<img class="logo" src="ca/img/logo.png" alt="logo">
-							<img class="logo-alt" src="ca/img/logo-alt.png" alt="logo">
+                            <img  class="logo img-responsive" src="{{ asset('logo.png') }}" alt="logo">
+                            <!-- <img class="logo-alt img-responsive" src="{{ asset('logo.png') }}" alt="logo"> -->
 						</a>
 					</div>
 					<!-- /Logo -->
@@ -75,15 +76,6 @@
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<li><a href="{{ url('/') }}">Home</a></li>
 					<li><a href="#about">Acara</a></li>
-					<!-- <li><a href="#portfolio">Portfolio</a></li>
-					<li><a href="#service">Services</a></li>
-					<li><a href="#pricing">Prices</a></li>
-					<li><a href="#team">Team</a></li>
-					<li class="has-dropdown"><a href="#blog">Blog</a>
-						<ul class="dropdown">
-							<li><a href="blog-single.html">blog post</a></li>
-						</ul>
-					</li> -->
 					<li><a href="#contact">Hubungi kami</a></li>
                     <li><a href="{{ route('login') }}"><i class="fa fa-user"> login</i></a></li>
 				</ul>
@@ -99,11 +91,11 @@
 				<div class="row">
 
 					<!-- home content -->
-					<div class="col-md-10 col-md-offset-1">
+					<div class="col-md-10 col-md-offset-1" style="text-align:center">
 						<div class="home-content">
-							<h1 class="white-text">BINER 4.0</h1>
-							<p class="white-text">Technology and Innovation in Millenial Era
-							</p>
+                            <img class="img-responsive" width="100%" height="100%" class="logo" src="{{ asset('logo.png') }}" alt="logo">
+							<!-- <p class="white-text">Technology and Innovation in Millenial Era
+							</p> -->
                             <!-- <button class="white-btn">Get Started!</button> -->
                             @if (Route::has('register'))
                             <a href="{{ route('register')}}" class="btn main-btn">Daftar sekarang</a>
@@ -191,22 +183,24 @@
 				<div class="section-header text-center">
 					<h2 class="title">Info Terkini</h2>
 				</div>
-				<!-- /Section header -->
-                @foreach($welcome as $welcome)
+                <!-- /Section header -->
+                @foreach($berita as $berita)
+                @if($berita==null)
+                @endif
 				<!-- blog -->
 				<div class="col-md-4">
 					<div class="blog">
-						<div class="blog-img">
-                        <img class="img-responsive" src="{{asset('storage/upload_gambar/'.$welcome->gambar)}}" alt="">
+						<div class="blog-img" style="text-align:center">
+                        <img class="img-responsive" width=350px height=300px src="{{asset('storage/upload_gambar/'.$berita->gambar)}}" alt="">
 						</div>
 						<div class="blog-content">
 							<ul class="blog-meta">
-								<li><i class="fa fa-clock-o"></i>{{ $welcome->tanggal }}</li>
+								<li><i class="fa fa-clock-o"></i>{{ $berita->tanggal }}</li>
 							</ul>
-							<h3>{{ $welcome->kegiatan }}</h3>
-                            <p>{{ substr($welcome->deskripsi,0,30) }}</p>
+							<h3>{{ $berita->kegiatan }}</h3>
+                            <p>{{ substr($berita->deskripsi,0,30) }}</p>
                             <!-- <a href="blog-single.html" data-toggle="modal" data-target="#ModalExample">Read more</a> -->
-
+                            <a class="btn btn-primary" href="/berita/{{ $berita->slug }}">Lihat selengkapnya</a>
 						</div>
 					</div>
                 </div>
@@ -246,7 +240,7 @@
 				<div class="col-sm-4">
 					<div class="contact">
 						<i class="fa fa-phone"></i>
-						<h3>Nomor Handphone</h3>
+						<h3>Phone</h3>
 						<p>08121213123</p>
 					</div>
 				</div>
@@ -257,7 +251,7 @@
 					<div class="contact">
 						<i class="fa fa-envelope"></i>
 						<h3>Email</h3>
-						<p>email@support.com</p>
+						<p>binerunj@gmail.com</p>
 					</div>
 				</div>
 				<!-- /contact -->
@@ -271,18 +265,6 @@
 					</div>
 				</div>
 				<!-- /contact -->
-
-				<!-- contact form -->
-				<!-- <div class="col-md-8 col-md-offset-2">
-					<form class="contact-form">
-						<input type="text" class="input" placeholder="Name">
-						<input type="email" class="input" placeholder="Email">
-						<input type="text" class="input" placeholder="Subject">
-						<textarea class="input" placeholder="Message"></textarea>
-						<button class="main-btn">Send message</button>
-					</form>
-				</div> -->
-				<!-- /contact form -->
 
 			</div>
 			<!-- /Row -->
@@ -305,16 +287,12 @@
 
 				<div class="col-md-12">
 
-					<!-- footer logo -->
-					<div class="footer-logo">
-						<a href="index.html"><img src="ca/img/logo-alt.png" alt="logo"></a>
-					</div>
-					<!-- /footer logo -->
+
 
 					<!-- footer follow -->
 					<ul class="footer-follow">
 
-						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="https://instagram.com/default_unj"><i class="fa fa-instagram"></i></a></li>
 
 					</ul>
 					<!-- /footer follow -->
@@ -356,7 +334,8 @@
 	<script type="text/javascript" src="ca/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="ca/js/owl.carousel.min.js"></script>
 	<script type="text/javascript" src="ca/js/jquery.magnific-popup.js"></script>
-	<script type="text/javascript" src="ca/js/main.js"></script>
+    <script type="text/javascript" src="ca/js/main.js"></script>
+    <script type="text/javascript" src="{{ asset('js/carousel.js') }}"></script>
 
 </body>
 

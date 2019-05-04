@@ -6,10 +6,10 @@
     'debug' => true,
     'url' => 'http://localhost:8000',
     'asset_url' => NULL,
-    'timezone' => 'UTC',
-    'locale' => 'en',
-    'fallback_locale' => 'en',
-    'faker_locale' => 'en_US',
+    'timezone' => 'Asia/Jakarta',
+    'locale' => 'id',
+    'fallback_locale' => 'id',
+    'faker_locale' => 'id',
     'key' => 'base64:cu5eyWJgMSiC7EOXQuyVfeUkjQtSvaJx8G0zRZ7w0ag=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
@@ -36,12 +36,12 @@
       19 => 'Illuminate\\Translation\\TranslationServiceProvider',
       20 => 'Illuminate\\Validation\\ValidationServiceProvider',
       21 => 'Illuminate\\View\\ViewServiceProvider',
-      22 => 'App\\Providers\\AppServiceProvider',
-      23 => 'App\\Providers\\AuthServiceProvider',
-      24 => 'App\\Providers\\EventServiceProvider',
-      25 => 'App\\Providers\\RouteServiceProvider',
-      26 => 'RealRashid\\SweetAlert\\SweetAlertServiceProvider',
-      27 => 'Mews\\Captcha\\CaptchaServiceProvider',
+      22 => 'RealRashid\\SweetAlert\\SweetAlertServiceProvider',
+      23 => 'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider',
+      24 => 'App\\Providers\\AppServiceProvider',
+      25 => 'App\\Providers\\AuthServiceProvider',
+      26 => 'App\\Providers\\EventServiceProvider',
+      27 => 'App\\Providers\\RouteServiceProvider',
     ),
     'aliases' => 
     array (
@@ -81,7 +81,7 @@
       'Validator' => 'Illuminate\\Support\\Facades\\Validator',
       'View' => 'Illuminate\\Support\\Facades\\View',
       'Alert' => 'RealRashid\\SweetAlert\\Facades\\Alert',
-      'Captcha' => 'Mews\\Captcha\\Facades\\Captcha',
+      'NoCaptcha' => 'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha',
     ),
   ),
   'auth' => 
@@ -219,6 +219,12 @@
   ),
   'captcha' => 
   array (
+    'secret' => '6Lf5yaEUAAAAAJXbGbkAgGwdamZsZa3BGJ_OYuIf',
+    'sitekey' => '6Lf5yaEUAAAAAMGOZUBWgFQpXGAyf_-ZhSAqmtJc',
+    'options' => 
+    array (
+      'timeout' => 30,
+    ),
     'characters' => '2346789abcdefghjmnpqrtuxyzABCDEFGHJMNPQRTUXYZ',
     'default' => 
     array (
@@ -606,10 +612,6 @@
       0 => '/home/asuspc/biner4.0/resources/views',
     ),
     'compiled' => '/home/asuspc/biner4.0/storage/framework/views',
-  ),
-  'image' => 
-  array (
-    'driver' => 'gd',
   ),
   'trustedproxy' => 
   array (

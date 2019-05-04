@@ -62,12 +62,14 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th>Nama</th>
                                     <th>Team</th>
                                     <th>Institusi</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
+                                    <th>Nama</th>
                                     <th>Team</th>
                                     <th>Institusi</th>
                                 </tr>
@@ -75,6 +77,7 @@
                             <tbody>
                                 @foreach($proposal as $proposal)
                                     <tr>
+                                        <td>{{ $proposal->name }}</td>
                                         <td>{{ $proposal->uploader }}</td>
                                         <td>{{ $proposal->institusi }}</td>
                                     </tr>

@@ -60,6 +60,7 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th>Nama</th>
                                     <th>Nama Team</th>
                                     <th>Institusi</th>
                                     <th>Proposal</th>
@@ -67,6 +68,7 @@
                             </thead>
                             <tfoot>
                                 <tr>
+                                    <th>Nama</th>
                                     <th>Nama Team</th>
                                     <th>Institusi</th>
                                     <th>Proposal</th>
@@ -75,6 +77,7 @@
                             <tbody>
                                 <?php $__currentLoopData = $prop; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $proposal): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
+                                        <td><?php echo e($proposal->name); ?></td>
                                         <td><?php echo e($proposal->uploader); ?></td>
                                         <td><?php echo e($proposal->institusi); ?></td>
                                         <td><a class="btn btn-success" href="<?php echo e(asset('storage/upload_proposal/'.$proposal->prop_file)); ?>" download="<?php echo e(asset('storage/upload_proposal/'.$proposal->prop_file)); ?>">Download</td>

@@ -60,5 +60,4 @@
         </div>
     </body>
 </html>
-
-<?php /* /home/asuspc/biner4.0/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/views/minimal.blade.php */ ?>
+<?php /**PATH /home/asuspc/biner4.0/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/views/minimal.blade.php ENDPATH**/ ?>

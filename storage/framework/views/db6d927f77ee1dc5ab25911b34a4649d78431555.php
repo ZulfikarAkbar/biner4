@@ -62,12 +62,14 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th>Nama</th>
                                     <th>Team</th>
                                     <th>Institusi</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
+                                    <th>Nama</th>
                                     <th>Team</th>
                                     <th>Institusi</th>
                                 </tr>
@@ -75,6 +77,7 @@
                             <tbody>
                                 <?php $__currentLoopData = $proposal; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $proposal): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
+                                        <td><?php echo e($proposal->name); ?></td>
                                         <td><?php echo e($proposal->uploader); ?></td>
                                         <td><?php echo e($proposal->institusi); ?></td>
                                     </tr>
@@ -92,13 +95,15 @@
             <!-- /.container-fluid -->
 
             <!-- Sticky Footer -->
-            <footer class="sticky-footer">
-                <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright © BINER 4.0 2019 | DEFAULT</span>
-                </div>
-                </div>
-            </footer>
+        <footer class="sticky-footer">
+            <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                © Hak cipta BINER 4.0 • Made with
+                <span style="color:#e25555"><i class="fa fa-heart" aria-hidden="true"></i></span>
+                in Jakarta
+            </div>
+            </div>
+        </footer>
 
         </div>
         <!-- /.content-wrapper -->

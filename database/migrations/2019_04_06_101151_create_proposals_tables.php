@@ -15,6 +15,7 @@ class CreateProposalsTables extends Migration
     {
         Schema::create('proposals', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
             $table->string('uploader');
             $table->string('institusi');
             $table->string('prop_file');

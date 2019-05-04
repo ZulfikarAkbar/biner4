@@ -32,7 +32,7 @@
 					<img src="Login/images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form" method="POST" action="<?php echo e(route('register')); ?>">
+				<form class="login100-form" method="POST" enctype="multipart/form-data" action="<?php echo e(route('register')); ?>">
                     <?php echo e(csrf_field()); ?>
 
 					<span class="login100-form-title">
@@ -48,7 +48,7 @@
                     </div>
 
                     <div class="wrap-input100">
-						<input class="input100 form-control<?php echo e($errors->has('institusi') ? ' is-invalid' : ''); ?>" placeholder="Institusi" id="institusi" type="text" name="institusi" required autofocus>
+						<input class="input100 form-control<?php echo e($errors->has('institusi') ? ' is-invalid' : ''); ?>" placeholder="Institusi/Universitas" id="institusi" type="text" name="institusi" required autofocus>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-building" aria-hidden="true"></i>
@@ -101,6 +101,22 @@
 						</span>
 					</div>
 
+                    <div class="wrap-input100  ">
+						<input class="input100 form-control<?php echo e($errors->has('bukti') ? ' is-invalid' : ''); ?>" placeholder="Bukti Pembayaran" id="bukti" type="file" name="bukti" required autofocus>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-file" aria-hidden="true"></i>
+						</span>
+                        *.jpg (upload bukti pembayaran)
+                    </div>
+                    <div class="form-group">
+                        <?php echo NoCaptcha::renderJs(); ?>
+
+                        <?php echo NoCaptcha::display(); ?>
+
+                        <span class="text-danger"><?php echo e($errors->first('g-recaptcha-response')); ?></span>
+                    </div>
+
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
 							Daftar
@@ -146,5 +162,4 @@
 
 </body>
 </html>
-
-<?php /* /home/asuspc/biner4.0/resources/views/auth/register.blade.php */ ?>
+<?php /**PATH /home/asuspc/biner4.0/resources/views/auth/register.blade.php ENDPATH**/ ?>

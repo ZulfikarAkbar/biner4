@@ -32,7 +32,7 @@
 					<img src="Login/images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form" method="POST" action="{{ route('register') }}">
+				<form class="login100-form" method="POST" enctype="multipart/form-data" action="{{ route('register') }}">
                     {{ csrf_field() }}
 					<span class="login100-form-title">
 						Pendaftaran
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="wrap-input100">
-						<input class="input100 form-control{{ $errors->has('institusi') ? ' is-invalid' : '' }}" placeholder="Institusi" id="institusi" type="text" name="institusi" required autofocus>
+						<input class="input100 form-control{{ $errors->has('institusi') ? ' is-invalid' : '' }}" placeholder="Institusi/Universitas" id="institusi" type="text" name="institusi" required autofocus>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-building" aria-hidden="true"></i>
@@ -99,6 +99,20 @@
 							<i class="fa fa-lock-o" aria-hidden="true"></i>
 						</span>
 					</div>
+
+                    <div class="wrap-input100  ">
+						<input class="input100 form-control{{ $errors->has('bukti') ? ' is-invalid' : '' }}" placeholder="Bukti Pembayaran" id="bukti" type="file" name="bukti" required autofocus>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-file" aria-hidden="true"></i>
+						</span>
+                        *.jpg (upload bukti pembayaran)
+                    </div>
+                    <div class="form-group">
+                        {!! NoCaptcha::renderJs() !!}
+                        {!! NoCaptcha::display() !!}
+                        <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
+                    </div>
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">

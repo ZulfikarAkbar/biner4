@@ -54,7 +54,7 @@
                 <div class="card-header"><?php echo e(__('Post berita terbaru')); ?></div>
 
                 <div class="card-body">
-                    <form enctype="multipart/form-data" method="POST" action="<?php echo e(route('berita.store')); ?>">
+                    <form enctype="multipart/form-data" method="post" action="/berita/{berita}">
                     <?php echo e(csrf_field()); ?>
 
 
@@ -104,8 +104,7 @@
                             <label for="deskripsi" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Deskripsi')); ?></label>
 
                             <div class="col-md-6">
-                            <textarea id="deskripsi" type="text" class="form-control<?php echo e($errors->has('deskripsi') ? ' is-invalid' : ''); ?>" name="deskripsi" value="<?php echo e(old('deskripsi')); ?>" required autofocus>
-                                </textarea>
+                            <textarea id="deskripsi" type="text" class="form-control<?php echo e($errors->has('deskripsi') ? ' is-invalid' : ''); ?>" name="deskripsi" value="<?php echo e(old('deskripsi')); ?>" required autofocus></textarea>
                                 <?php if($errors->has('deskripsi')): ?>
                                     <span class="invalid-feedback" role="alert">
                                         <strong><?php echo e($errors->first('deskripsi')); ?></strong>

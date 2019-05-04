@@ -65,6 +65,7 @@
                                     <th>Kluster Pendaftaran</th>
                                     <th>No. Handphone</th>
                                     <th>Alamat E-Mail</th>
+                                    <th>Bukti Pembayaran</th>
 
                                 </tr>
                             </thead>
@@ -75,6 +76,7 @@
                                     <th>Kluster Pendaftaran</th>
                                     <th>No. Handphone</th>
                                     <th>Alamat E-Mail</th>
+                                    <th>Bukti Pembayaran</th>
                                 </tr>
                             </tfoot>
                             <tbody>
@@ -85,6 +87,7 @@
                                         <td>{{ $pendaftar->role }}</td>
                                         <td>{{ $pendaftar->phone }}</td>
                                         <td>{{ $pendaftar->email }}</td>
+                                        <td><a class="btn btn-success" href="{{asset('storage/upload_bukti_bayar/'.$pendaftar->bukti)}}" download="{{asset('storage/upload_bukti_bayar/'.$pendaftar->bukti)}}" alt="">Download</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -17,6 +17,7 @@ class ProposalController extends Controller
     }
     public function store(Request $request){
         $this->validate($request,[
+            'name'=>'required',
             'uploader'=>'required',
             'institusi'=>'required',
             'prop_file'=>'required',
@@ -27,6 +28,7 @@ class ProposalController extends Controller
         $request->file('prop_file')->storeAs('public/upload_proposal', $file_prop);
 
         $proposal = proposal::create([
+            'name' => $request['name'],
             'uploader' => $request['uploader'],
             'institusi' => $request['institusi'],
             'prop_file' => $file_prop,
@@ -39,6 +41,7 @@ class ProposalController extends Controller
     }
     public function update(Request $request, $id){
         $this->validate($request,[
+            'name'=>'required',
             'uploader'=>'required',
             'institusi'=>'required',
             'prop_file'=>'required',
@@ -52,6 +55,7 @@ class ProposalController extends Controller
         $proposal = proposal::find($id);
 
         $berita ->update([
+            'name' => $request['name'],
             'uploader' => $request['uploader'],
             'institusi' => $request['institusi'],
             'prop_file' => $file_prop,
