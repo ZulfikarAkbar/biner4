@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-
+    <link rel="icon" href="<?php echo e(asset('logo.png')); ?>" alt="">
     <title><?php echo e(config('app.name', 'Laravel')); ?></title>
 
     <!-- Scripts -->

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <link rel="icon" href="<?php echo e(asset('logo.png')); ?>" alt="">
     <title>BINER 4.0 | Proposal</title>
 
     <!-- Bootstrap core CSS-->
@@ -88,9 +88,9 @@
                                         <td><?php echo e($prop->name); ?></td>
                                         <td><?php echo e($prop->uploader); ?></td>
                                         <td><?php echo e($prop->institusi); ?></td>
-                                        <td><a class="btn btn-success" href="<?php echo e(asset('storage/upload_proposal/'.$proposal->prop_file)); ?>" download="<?php echo e(asset('storage/upload_proposal/'.$proposal->prop_file)); ?>"><i class="fa fa-file-download"> Download</i></a></td>
+                                        <td><a class="btn btn-success" href="<?php echo e(asset('storage/upload_proposal/'.$prop->prop_file)); ?>" download="<?php echo e(asset('storage/upload_proposal/'.$prop->prop_file)); ?>"><i class="fa fa-file-download"> Download</i></a></td>
                                         <td>
-                                        <form action="<?php echo e(route('proposal.destroy', $prop->id)); ?>" method="post">
+                                        <form action="<?php echo e(route('prop.destroy', $prop->id)); ?>" method="post">
                                                 <?php echo csrf_field(); ?>
                                                 <?php echo method_field('DELETE'); ?>
                                                 <button type="hidden" class="btn btn-danger" onclick="return confirm('Anda yakin menghapus proposal ini?')"><i class="fa fa-eraser"> Hapus</i></button>

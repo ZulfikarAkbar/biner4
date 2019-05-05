@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <link rel="icon" href="<?php echo e(asset('logo.png')); ?>" alt="">
     <title>Dashboard</title>
 
     <!-- Bootstrap core CSS-->
@@ -189,5 +189,4 @@
   </body>
 
 </html>
-
-<?php /* /home/asuspc/biner4.0/resources/views/home.blade.php */ ?>
+<?php /**PATH /home/asuspc/biner4.0/resources/views/home.blade.php ENDPATH**/ ?>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<link rel="icon" href="{{ asset('logo.png') }}" alt="">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -77,7 +77,7 @@
 		<!-- header wrapper -->
 		<div class="header-wrapper sm-padding bg-grey">
 			<div class="container">
-				<h2>Info terkini</h2>
+				<h2>{{ $berita->kegiatan }}</h2>
 				<!-- <ul class="breadcrumb">
 					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
 					<li class="breadcrumb-item"><a href="index.html#blog">Blog</a></li>
@@ -102,6 +102,7 @@
 				<!-- Main -->
 				<main id="main" class="col-md-9">
 					<div class="blog">
+                    <h1><strong></strong></h1>
 						<div class="blog-img">
 							<img class="img-responsive" src="{{asset('storage/upload_gambar/'.$berita->gambar)}}" alt="">
 						</div>
@@ -110,7 +111,7 @@
 								<li><i class="fa fa-user"></i>Admin</li>
 								<li><i class="fa fa-clock-o"></i>{{ $berita->updated_at }}</li>
 							</ul>
-							<h3>{{ $berita->kegiatan }}</h3>
+
 							<p>{{ $berita->deskripsi }}</p>
                         </div>
                         <div class="blog-tags">
@@ -148,6 +149,7 @@
                             <a href="#">Bussiness Case Competition</a>
                             <a href="#">IOT Workshop</a>
                             <a href="#">Photography</a>
+                            <a href="#">AGRI-COOL-TURE</a>
                         </div>
                     </div>
                     <!-- /Category -->

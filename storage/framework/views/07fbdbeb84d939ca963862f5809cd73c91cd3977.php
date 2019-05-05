@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <link rel="icon" href="<?php echo e(asset('logo.png')); ?>" alt="">
     <title>BINER 4.0 | Data Pendaftar</title>
 
     <!-- Bootstrap core CSS-->

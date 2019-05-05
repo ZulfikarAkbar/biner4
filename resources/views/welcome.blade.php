@@ -7,7 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>BINER 4.0 | Technology and Innovation in Millenial Era</title>
+	<link rel="icon" href="{{ asset('logo.png') }}" alt="">
+    <title>BINER 4.0 | Technology and Innovation in Millenial Era</title>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
@@ -133,7 +134,8 @@
 					<div class="about">
 						<i class="fa fa-cogs"></i>
 						<h3>Seminar</h3>
-						<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet.</p>
+						<p>Seminar yang berfokus pada IoT di bidang industri pertanian yang akan dihadiri oleh pemateri berkompeten serta menarik, dibuka untuk mahasiswa dan umum.
+						Seminar ini mengangkat tema "AGRI-COOL-TURE" One Step Closer Towards Smart Farming 4.0 Indonesia.</p>
 						<!-- <a href="#">Read more</a> -->
 					</div>
 				</div>
@@ -144,7 +146,7 @@
 					<div class="about">
 						<i class="fa fa-magic"></i>
 						<h3>Workshop</h3>
-						<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet.</p>
+						<p>Merupakan pelatihan dasar untuk membuat IOT di bidang pertanian</p>
 						<!-- <a href="#">Read more</a> -->
 					</div>
 				</div>
@@ -155,7 +157,8 @@
 					<div class="about">
 						<i class="fa fa-mobile"></i>
 						<h3>Bussiness Case Competition</h3>
-						<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet.</p>
+						<p>Kompetisi yang mewadahi peserta dalam mengembangkan ide atau rancangan
+						bisnis yang kreatif dan inovatif dalam sektor pertanian.</p>
 						<!-- <a href="#">Read more</a> -->
 					</div>
 				</div>
@@ -196,7 +199,7 @@
 				<div class="col-md-4">
 					<div class="blog">
 						<div class="blog-img" style="text-align:center">
-                        <img  width=350px height=300px src="{{asset('storage/upload_gambar/'.$berita->gambar)}}" alt="">
+                        <img  width=350px height=200px src="{{asset('storage/upload_gambar/'.$berita->gambar)}}" alt="">
 						</div>
 						<div class="blog-content">
 							<ul class="blog-meta">

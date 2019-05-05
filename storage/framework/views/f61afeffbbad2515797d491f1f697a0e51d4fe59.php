@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="Login/images/icons/favicon.ico"/>
+<link rel="icon" href="<?php echo e(asset('logo.png')); ?>" alt="">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="Login/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
