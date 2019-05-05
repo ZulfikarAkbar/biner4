@@ -58,6 +58,25 @@
                         {!! NoCaptcha::display() !!}
                         <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
                     </div>
+
+                    <div class="form-group">
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                <label class="form-check-label" for="remember">{{ __('Ingat Saya') }}</label>
+                            </div>
+                        </div>
+                    </div>
+                    Lupa password?
+                    @if (Route::has('password.request'))
+                        <a style="color:cornflowerblue" href="{{ route('password.request') }}"><strong>{{ __('Reset di sini') }}</strong></a>
+                    @endif
+                    <br>
+                    Belum pernah mendaftar?
+                    <a style="color:cornflowerblue" href="{{ route('register') }}"><strong>Daftar di sini</strong></a>
+                    <br>
+
+
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
                             Masuk

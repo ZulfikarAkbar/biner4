@@ -61,6 +61,25 @@
 
                         <span class="text-danger"><?php echo e($errors->first('g-recaptcha-response')); ?></span>
                     </div>
+
+                    <div class="form-group">
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember" <?php echo e(old('remember') ? 'checked' : ''); ?>>
+                                <label class="form-check-label" for="remember"><?php echo e(__('Ingat Saya')); ?></label>
+                            </div>
+                        </div>
+                    </div>
+                    Lupa password?
+                    <?php if(Route::has('password.request')): ?>
+                        <a style="color:cornflowerblue" href="<?php echo e(route('password.request')); ?>"><strong><?php echo e(__('Reset di sini')); ?></strong></a>
+                    <?php endif; ?>
+                    <br>
+                    Belum pernah mendaftar?
+                    <a style="color:cornflowerblue" href="<?php echo e(route('register')); ?>"><strong>Daftar di sini</strong></a>
+                    <br>
+
+
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
                             Masuk

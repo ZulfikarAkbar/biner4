@@ -62,6 +62,8 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th>No.</th>
+                                    <th>Tanggal upload proposal</th>
                                     <th>Nama</th>
                                     <th>Team</th>
                                     <th>Institusi</th>
@@ -69,17 +71,22 @@
                             </thead>
                             <tfoot>
                                 <tr>
+                                    <th>No.</th>
+                                    <th>Tanggal upload proposal</th>
                                     <th>Nama</th>
                                     <th>Team</th>
                                     <th>Institusi</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <?php $__currentLoopData = $proposal; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $proposal): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php $__currentLoopData = $proposal; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $proposal): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
+                                        <td><?php echo e($key+1); ?></td>
+                                        <td><?php echo e($proposal->created_at); ?></td>
                                         <td><?php echo e($proposal->name); ?></td>
                                         <td><?php echo e($proposal->uploader); ?></td>
                                         <td><?php echo e($proposal->institusi); ?></td>
+
                                     </tr>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
@@ -137,5 +144,4 @@
   </body>
 
 </html>
-
-<?php /* /home/asuspc/biner4.0/resources/views/proposal/index.blade.php */ ?>
+<?php /**PATH /home/asuspc/biner4.0/resources/views/proposal/index.blade.php ENDPATH**/ ?>

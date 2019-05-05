@@ -60,34 +60,49 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th>No.</th>
+                                    <th>Tanggal mendaftar</th>
                                     <th>Nama Lengkap</th>
                                     <th>Asal Institusi</th>
                                     <th>Kluster Pendaftaran</th>
                                     <th>No. Handphone</th>
                                     <th>Alamat E-Mail</th>
                                     <th>Bukti Pembayaran</th>
+                                    <th>Hapus pendaftar</th>
 
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
+                                    <th>No.</th>
+                                    <th>Tanggal mendaftar</th>
                                     <th>Nama Lengkap</th>
                                     <th>Asal Institusi</th>
                                     <th>Kluster Pendaftaran</th>
                                     <th>No. Handphone</th>
                                     <th>Alamat E-Mail</th>
                                     <th>Bukti Pembayaran</th>
+                                    <th>Hapus pendaftar</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @foreach($pendaftars as $pendaftar)
+                                @foreach($pendaftars as $key => $pendaftar)
                                     <tr>
+                                        <td>{{ $key+1 }}</td>
+                                        <td>{{ $pendaftar->created_at }}</td>
                                         <td>{{ $pendaftar->name }}</td>
                                         <td>{{ $pendaftar->institusi }}</td>
                                         <td>{{ $pendaftar->role }}</td>
                                         <td>{{ $pendaftar->phone }}</td>
                                         <td>{{ $pendaftar->email }}</td>
-                                        <td><a class="btn btn-success" href="{{asset('storage/upload_bukti_bayar/'.$pendaftar->bukti)}}" download="{{asset('storage/upload_bukti_bayar/'.$pendaftar->bukti)}}" alt="">Download</a></td>
+                                        <td><a class="btn btn-success" href="{{asset('storage/upload_bukti_bayar/'.$pendaftar->bukti)}}" download="{{asset('storage/upload_bukti_bayar/'.$pendaftar->bukti)}}" alt=""><i class="fa fa-file-download"> Download</i></a></td>
+                                        <td>
+                                            <form action="{{ route('pendaftar.destroy', $pendaftar->id)}}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="hidden" class="btn btn-danger" onclick="return confirm('Anda yakin menghapus pendaftar ini?')"><i class="fa fa-eraser"> Hapus</i></button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

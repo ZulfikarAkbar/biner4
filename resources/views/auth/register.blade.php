@@ -39,7 +39,7 @@
                     </span>
 
                     <div class="wrap-input100">
-						<input class="input100 form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Nama" id="name" type="text" name="name" required autofocus>
+						<input class="input100 form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Nama" id="name" type="text" name="name" value="{{ old('name')}}" required autofocus>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="wrap-input100">
-						<input class="input100 form-control{{ $errors->has('institusi') ? ' is-invalid' : '' }}" placeholder="Institusi/Universitas" id="institusi" type="text" name="institusi" required autofocus>
+						<input class="input100 form-control{{ $errors->has('institusi') ? ' is-invalid' : '' }}" placeholder="Institusi/Universitas" id="institusi" type="text" name="institusi" value="{{ old('institusi')}}" required autofocus>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-building" aria-hidden="true"></i>
@@ -55,7 +55,7 @@
                     </div>
 
                     <div class="wrap-input100">
-						<select class="input100 form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" placeholder="Kluster Pendaftaran" id="role" type="text" name="role" required autofocus>
+						<select class="input100 form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" placeholder="Kluster Pendaftaran" id="role" type="text" name="role" value="{{ old('role') }}" required autofocus>
                             <option value="">Kluster Pendaftaran</option>
                             <option value="Seminar">Seminar</option>
                             <option value="WorkshopBatch_1">Workshop (Batch I)</option>
@@ -69,7 +69,7 @@
                     </div>
 
 					<div class="wrap-input100  ">
-						<input class="input100 form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email" id="email" type="email" name="email" required autofocus>
+						<input class="input100 form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email" id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -77,7 +77,7 @@
                     </div>
 
                     <div class="wrap-input100  ">
-                        <input class="input100 form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" placeholder="Nomor Handphone" id="phone" type="number" name="phone" required autofocus>
+                        <input class="input100 form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" placeholder="Nomor Handphone" id="phone" type="number" name="phone" value="{{ old('phone') }}" required autofocus>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-phone-square" aria-hidden="true"></i>
@@ -106,13 +106,16 @@
 						<span class="symbol-input100">
 							<i class="fa fa-file" aria-hidden="true"></i>
 						</span>
-                        *.jpg (upload bukti pembayaran)
+                        <!-- (format bukti pembayaran khusus : namaketua_namapembayar.jpg) -->
                     </div>
                     <div class="form-group">
                         {!! NoCaptcha::renderJs() !!}
                         {!! NoCaptcha::display() !!}
                         <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
                     </div>
+
+                    Sudah pernah mendaftar?
+                    <a style="color:cornflowerblue" href="{{ route('login') }}"><strong>Login di sini</strong></a>
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">

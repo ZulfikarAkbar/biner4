@@ -60,27 +60,42 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th>No.</th>
+                                    <th>Tanggal upload proposal</th>
                                     <th>Nama</th>
                                     <th>Nama Team</th>
                                     <th>Institusi</th>
                                     <th>Proposal</th>
+                                    <th>Hapus proposal</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
+                                    <th>No.</th>
+                                    <th>Tanggal upload proposal</th>
                                     <th>Nama</th>
                                     <th>Nama Team</th>
                                     <th>Institusi</th>
                                     <th>Proposal</th>
+                                    <th>Hapus proposal</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <?php $__currentLoopData = $prop; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $proposal): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php $__currentLoopData = $prop; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $prop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
-                                        <td><?php echo e($proposal->name); ?></td>
-                                        <td><?php echo e($proposal->uploader); ?></td>
-                                        <td><?php echo e($proposal->institusi); ?></td>
-                                        <td><a class="btn btn-success" href="<?php echo e(asset('storage/upload_proposal/'.$proposal->prop_file)); ?>" download="<?php echo e(asset('storage/upload_proposal/'.$proposal->prop_file)); ?>">Download</td>
+                                        <td><?php echo e($key+1); ?></td>
+                                        <td><?php echo e($prop->created_at); ?></td>
+                                        <td><?php echo e($prop->name); ?></td>
+                                        <td><?php echo e($prop->uploader); ?></td>
+                                        <td><?php echo e($prop->institusi); ?></td>
+                                        <td><a class="btn btn-success" href="<?php echo e(asset('storage/upload_proposal/'.$proposal->prop_file)); ?>" download="<?php echo e(asset('storage/upload_proposal/'.$proposal->prop_file)); ?>"><i class="fa fa-file-download"> Download</i></a></td>
+                                        <td>
+                                        <form action="<?php echo e(route('proposal.destroy', $prop->id)); ?>" method="post">
+                                                <?php echo csrf_field(); ?>
+                                                <?php echo method_field('DELETE'); ?>
+                                                <button type="hidden" class="btn btn-danger" onclick="return confirm('Anda yakin menghapus proposal ini?')"><i class="fa fa-eraser"> Hapus</i></button>
+                                        </form>
+                                        </td>
                                     </tr>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
@@ -138,5 +153,4 @@
   </body>
 
 </html>
-
-<?php /* /home/asuspc/biner4.0/resources/views/prop/index.blade.php */ ?>
+<?php /**PATH /home/asuspc/biner4.0/resources/views/prop/index.blade.php ENDPATH**/ ?>

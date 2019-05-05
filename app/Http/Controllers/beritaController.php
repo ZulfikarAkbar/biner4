@@ -29,10 +29,10 @@ class beritaController extends Controller
     }
     public function store(Request $request){
         $this->validate($request,[
-            'kegiatan'=>'required',
-            'tanggal'=>'required',
-            'gambar'=>'required',
-            'deskripsi'=>'required',
+            'kegiatan'=>['required'],
+            'tanggal'=>['required'],
+            'gambar'=>['required','mimes:jpeg,jpg,'],
+            'deskripsi'=>['required'],
         ]);
         $slug = str_slug($request->kegiatan, '-');
 
@@ -59,10 +59,10 @@ class beritaController extends Controller
     public function update(Request $request, $slug){
         $berita = berita::where('slug', $slug)->first();
         $this->validate($request,[
-            'kegiatan'=>'required',
-            'tanggal'=>'required',
-            'gambar'=>'required|mimes:jpg',
-            'deskripsi'=>'required',
+            'kegiatan'=>['required'],
+            'tanggal'=>['required'],
+            'gambar'=>['required','mimes:jpeg,jpg,'],
+            'deskripsi'=>['required'],
 
         ]);
         $slug = str_slug($request->kegiatan, '-');

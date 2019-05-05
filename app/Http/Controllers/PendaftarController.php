@@ -9,7 +9,12 @@ class PendaftarController extends Controller
 {
     public function index()
   {
-    $pendaftars = User::all();
+    $pendaftars = User::orderBy('id', 'DESC')->get();
     return view('pendaftar.index', compact('pendaftars'));
   }
+  public function destroy($id){
+    $pendaftars = pendaftar::find($id);
+    $pendaftars->delete();
+    return redirect('/pendaftar');
+}
 }

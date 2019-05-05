@@ -60,34 +60,49 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th>No.</th>
+                                    <th>Tanggal mendaftar</th>
                                     <th>Nama Lengkap</th>
                                     <th>Asal Institusi</th>
                                     <th>Kluster Pendaftaran</th>
                                     <th>No. Handphone</th>
                                     <th>Alamat E-Mail</th>
                                     <th>Bukti Pembayaran</th>
+                                    <th>Hapus pendaftar</th>
 
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
+                                    <th>No.</th>
+                                    <th>Tanggal mendaftar</th>
                                     <th>Nama Lengkap</th>
                                     <th>Asal Institusi</th>
                                     <th>Kluster Pendaftaran</th>
                                     <th>No. Handphone</th>
                                     <th>Alamat E-Mail</th>
                                     <th>Bukti Pembayaran</th>
+                                    <th>Hapus pendaftar</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <?php $__currentLoopData = $pendaftars; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pendaftar): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php $__currentLoopData = $pendaftars; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $pendaftar): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
+                                        <td><?php echo e($key+1); ?></td>
+                                        <td><?php echo e($pendaftar->created_at); ?></td>
                                         <td><?php echo e($pendaftar->name); ?></td>
                                         <td><?php echo e($pendaftar->institusi); ?></td>
                                         <td><?php echo e($pendaftar->role); ?></td>
                                         <td><?php echo e($pendaftar->phone); ?></td>
                                         <td><?php echo e($pendaftar->email); ?></td>
-                                        <td><a class="btn btn-success" href="<?php echo e(asset('storage/upload_bukti_bayar/'.$pendaftar->bukti)); ?>" download="<?php echo e(asset('storage/upload_bukti_bayar/'.$pendaftar->bukti)); ?>" alt="">Download</a></td>
+                                        <td><a class="btn btn-success" href="<?php echo e(asset('storage/upload_bukti_bayar/'.$pendaftar->bukti)); ?>" download="<?php echo e(asset('storage/upload_bukti_bayar/'.$pendaftar->bukti)); ?>" alt=""><i class="fa fa-file-download"> Download</i></a></td>
+                                        <td>
+                                            <form action="<?php echo e(route('pendaftar.destroy', $pendaftar->id)); ?>" method="post">
+                                                <?php echo csrf_field(); ?>
+                                                <?php echo method_field('DELETE'); ?>
+                                                <button type="hidden" class="btn btn-danger" onclick="return confirm('Anda yakin menghapus pendaftar ini?')"><i class="fa fa-eraser"> Hapus</i></button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
@@ -146,5 +161,4 @@
   </body>
 
 </html>
-
-<?php /* /home/asuspc/biner4.0/resources/views/pendaftar/index.blade.php */ ?>
+<?php /**PATH /home/asuspc/biner4.0/resources/views/pendaftar/index.blade.php ENDPATH**/ ?>

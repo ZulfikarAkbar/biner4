@@ -109,19 +109,48 @@
 							<ul class="blog-meta">
 								<li><i class="fa fa-user"></i>Admin</li>
 								<li><i class="fa fa-clock-o"></i><?php echo e($berita->updated_at); ?></li>
-
 							</ul>
 							<h3><?php echo e($berita->kegiatan); ?></h3>
 							<p><?php echo e($berita->deskripsi); ?></p>
+                        </div>
+                        <div class="blog-tags">
+							<h5>Tags :</h5>
+							<a href="#"><i class="fa fa-tag"></i>BINER4.0</a>
+							<a href="#"><i class="fa fa-tag"></i>Seminar</a>
+							<a href="#"><i class="fa fa-tag"></i>Bussiness Case Competition</a>
+							<a href="#"><i class="fa fa-tag"></i>IOT Workshop</a>
+							<a href="#"><i class="fa fa-tag"></i>Branding</a>
+							<a href="#"><i class="fa fa-tag"></i>Photography</a>
 						</div>
 
 					</div>
 				</main>
-				<!-- /Main -->
+                <!-- /Main -->
 
-
-				<!-- Aside -->
+                <!-- Aside -->
 				<aside id="aside" class="col-md-3">
+
+                    <!-- Search -->
+                    <div class="widget">
+                        <div class="widget-search">
+                            <input class="search-input" type="text" placeholder="search">
+                            <button class="search-btn" type="button"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                    <!-- /Search -->
+
+                    <!-- Category -->
+                    <div class="widget">
+                        <h3 class="title">Category</h3>
+                        <div class="widget-category">
+                            <a href="#">BINER4.0</a>
+                            <a href="#">Seminar</a>
+                            <a href="#">Bussiness Case Competition</a>
+                            <a href="#">IOT Workshop</a>
+                            <a href="#">Photography</a>
+                        </div>
+                    </div>
+                    <!-- /Category -->
 
 				</aside>
 				<!-- /Aside -->
@@ -200,5 +229,4 @@
 </body>
 
 </html>
-
-<?php /* /home/asuspc/biner4.0/resources/views/show_berita.blade.php */ ?>
+<?php /**PATH /home/asuspc/biner4.0/resources/views/show_berita.blade.php ENDPATH**/ ?>

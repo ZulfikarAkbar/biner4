@@ -105,12 +105,22 @@
 
                             <div class="col-md-6">
                                 <input id="prop_file" type="file" class="form-control{{ $errors->has('prop_file') ? ' is-invalid' : '' }}" name="prop_file" value="{{ old('prop_file') }}" required autofocus>
-                                <p>*.pdf</p>
+                                <p><strong>Format file:</strong></p>
+                                <p><strong>BINER4.0-BUSSINESS-PROPOSAL_Judul Proposal.pdf</strong></p>
                                 @if ($errors->has('prop_file'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('prop_file') }}</strong>
                                     </span>
                                 @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                        <label class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
+                            <div class="col-md-6">
+                                {!! NoCaptcha::renderJs() !!}
+                                {!! NoCaptcha::display() !!}
+                                <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
                             </div>
                         </div>
 
@@ -130,7 +140,7 @@
             </div>
             <!-- /.container-fluid -->
 
-
+<br><br>
             <!-- Sticky Footer -->
         <footer class="sticky-footer">
             <div class="container my-auto">

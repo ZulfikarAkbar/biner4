@@ -49,7 +49,7 @@
         <div id="content-wrapper">
             <div class="container-fluid">
             <!-- DataTables Example -->
-            <a class="btn btn-success" href="/berita/buat_berita"><i class="fa fa-plus"> Buat berita</i></a>
+            <a class="btn btn-primary" href="/berita/buat_berita"><i class="fa fa-plus"> Buat berita</i></a>
             <br><br>
             <div class="card mb-3">
                 <div class="card-header">
@@ -63,7 +63,6 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Tanggal dibuat</th>
-                                    <th>Tanggal diupdate</th>
                                     <th>Nama Kegiatan</th>
                                     <th>Tanggal Kegiatan</th>
                                     <th>Gambar</th>
@@ -76,7 +75,6 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Tanggal dibuat</th>
-                                    <th>Tanggal diupdate</th>
                                     <th>Nama Kegiatan</th>
                                     <th>Tanggal Kegiatan</th>
                                     <th>Gambar</th>
@@ -90,19 +88,18 @@
                                     <tr>
                                         <td>{{ ++$key }}</td>
                                         <td>{{date('d-m-Y, H:i', strtotime($berita->created_at))}}</td>
-                                        <td>{{date('d-m-Y, H:i', strtotime($berita->updated_at))}}</td>
                                         <td>{{ $berita->kegiatan }}</td>
                                         <td>{{ $berita->tanggal }}</td>
                                         <td><img width="250px" height="150px" src="{{asset('storage/upload_gambar/'.$berita->gambar)}}" alt=""></td>
                                         <td style="text-align:justify">{{ substr($berita->deskripsi,0,20) }}</td>
                                         <td>
-                                            <a class="btn btn-primary" href="/berita/{{$berita->slug}}/edit_berita"><i class="fa fa-edit"></i></a>
+                                            <a class="btn btn-dark" style="background-color:yellow; color:black" href="/berita/{{$berita->slug}}/edit_berita"><i class="fa fa-edit"> Edit</i></a>
 
                                             <form action="{{ route('berita.destroy', $berita->id)}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <br>
-                                                <button type="hidden" class="btn-danger" onclick="return confirm('Anda yakin menghapus post ini?')"><i class="fa fa-eraser"></i></button>
+                                                <button type="hidden" class="btn btn-danger" onclick="return confirm('Anda yakin menghapus post ini?')"><i class="fa fa-eraser"> Hapus</i></button>
                                             </form>
                                         </td>
                                     </tr>

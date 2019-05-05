@@ -106,12 +106,24 @@
 
                             <div class="col-md-6">
                                 <input id="prop_file" type="file" class="form-control<?php echo e($errors->has('prop_file') ? ' is-invalid' : ''); ?>" name="prop_file" value="<?php echo e(old('prop_file')); ?>" required autofocus>
-                                <p>*.pdf</p>
+                                <p><strong>Format file:</strong></p>
+                                <p><strong>BINER4.0-BUSSINESS-PROPOSAL_Judul Proposal.pdf</strong></p>
                                 <?php if($errors->has('prop_file')): ?>
                                     <span class="invalid-feedback" role="alert">
                                         <strong><?php echo e($errors->first('prop_file')); ?></strong>
                                     </span>
                                 <?php endif; ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                        <label class="col-md-4 col-form-label text-md-right"><?php echo e(__('')); ?></label>
+                            <div class="col-md-6">
+                                <?php echo NoCaptcha::renderJs(); ?>
+
+                                <?php echo NoCaptcha::display(); ?>
+
+                                <span class="text-danger"><?php echo e($errors->first('g-recaptcha-response')); ?></span>
                             </div>
                         </div>
 
@@ -132,7 +144,7 @@
             </div>
             <!-- /.container-fluid -->
 
-
+<br><br>
             <!-- Sticky Footer -->
         <footer class="sticky-footer">
             <div class="container my-auto">
@@ -176,5 +188,4 @@
   </body>
 
 </html>
-
-<?php /* /home/asuspc/biner4.0/resources/views/proposal/create.blade.php */ ?>
+<?php /**PATH /home/asuspc/biner4.0/resources/views/proposal/create.blade.php ENDPATH**/ ?>

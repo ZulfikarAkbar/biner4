@@ -171,27 +171,32 @@
     <!-- /About -->
 
     <!-- Blog -->
+    @if($berita->count()==0)
+    @else
 	<div id="blog" class="section md-padding bg-grey">
 
-		<!-- Container -->
+        <!-- Container -->
+
 		<div class="container">
 
 			<!-- Row -->
 			<div class="row">
 
-				<!-- Section header -->
+                <!-- Section header -->
+
+
 				<div class="section-header text-center">
 					<h2 class="title">Info Terkini</h2>
 				</div>
                 <!-- /Section header -->
                 @foreach($berita as $berita)
-                @if($berita==null)
-                @endif
+
+
 				<!-- blog -->
 				<div class="col-md-4">
 					<div class="blog">
 						<div class="blog-img" style="text-align:center">
-                        <img class="img-responsive" width=350px height=300px src="{{asset('storage/upload_gambar/'.$berita->gambar)}}" alt="">
+                        <img  width=350px height=300px src="{{asset('storage/upload_gambar/'.$berita->gambar)}}" alt="">
 						</div>
 						<div class="blog-content">
 							<ul class="blog-meta">
@@ -209,12 +214,13 @@
 
 			</div>
 			<!-- /Row -->
-
 		</div>
-		<!-- /Container -->
+        <!-- /Container -->
+
+
 
 	</div>
-
+    @endif
 
 
 

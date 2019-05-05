@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ProposalController extends Controller
 {
     public function index(){
-        $proposal = proposal::all();
+        $proposal = proposal::orderBy('id', 'DESC')->get();
         return view('proposal.index',compact('proposal'));
     }
     public function create(){
@@ -17,10 +17,11 @@ class ProposalController extends Controller
     }
     public function store(Request $request){
         $this->validate($request,[
-            'name'=>'required',
-            'uploader'=>'required',
-            'institusi'=>'required',
-            'prop_file'=>'required',
+            'name'=>['required'],
+            'uploader'=>['required'],
+            'institusi'=>['required'],
+            'prop_file'=>['required','mimes:pdf','max:20048'],
+            'g-recaptcha-response' => ['required','captcha'],
 
         ]);
         $file = $request->file('prop_file');
@@ -41,10 +42,11 @@ class ProposalController extends Controller
     }
     public function update(Request $request, $id){
         $this->validate($request,[
-            'name'=>'required',
-            'uploader'=>'required',
-            'institusi'=>'required',
-            'prop_file'=>'required',
+            'name'=>['required'],
+            'uploader'=>['required'],
+            'institusi'=>['required'],
+            'prop_file'=>['required','mimes:pdf','max:20048'],
+            'g-recaptcha-response' => ['required','captcha'],
 
         ]);
 

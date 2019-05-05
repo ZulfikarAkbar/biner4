@@ -60,27 +60,42 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th>No.</th>
+                                    <th>Tanggal upload proposal</th>
                                     <th>Nama</th>
                                     <th>Nama Team</th>
                                     <th>Institusi</th>
                                     <th>Proposal</th>
+                                    <th>Hapus proposal</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
+                                    <th>No.</th>
+                                    <th>Tanggal upload proposal</th>
                                     <th>Nama</th>
                                     <th>Nama Team</th>
                                     <th>Institusi</th>
                                     <th>Proposal</th>
+                                    <th>Hapus proposal</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @foreach($prop as $proposal)
+                                @foreach($prop as $key => $prop)
                                     <tr>
-                                        <td>{{ $proposal->name }}</td>
-                                        <td>{{ $proposal->uploader }}</td>
-                                        <td>{{ $proposal->institusi }}</td>
-                                        <td><a class="btn btn-success" href="{{asset('storage/upload_proposal/'.$proposal->prop_file)}}" download="{{asset('storage/upload_proposal/'.$proposal->prop_file)}}">Download</td>
+                                        <td>{{ $key+1 }}</td>
+                                        <td>{{ $prop->created_at }}</td>
+                                        <td>{{ $prop->name }}</td>
+                                        <td>{{ $prop->uploader }}</td>
+                                        <td>{{ $prop->institusi }}</td>
+                                        <td><a class="btn btn-success" href="{{asset('storage/upload_proposal/'.$proposal->prop_file)}}" download="{{asset('storage/upload_proposal/'.$proposal->prop_file)}}"><i class="fa fa-file-download"> Download</i></a></td>
+                                        <td>
+                                        <form action="{{ route('proposal.destroy', $prop->id)}}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="hidden" class="btn btn-danger" onclick="return confirm('Anda yakin menghapus proposal ini?')"><i class="fa fa-eraser"> Hapus</i></button>
+                                        </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -62,6 +62,8 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th>No.</th>
+                                    <th>Tanggal upload proposal</th>
                                     <th>Nama</th>
                                     <th>Team</th>
                                     <th>Institusi</th>
@@ -69,17 +71,22 @@
                             </thead>
                             <tfoot>
                                 <tr>
+                                    <th>No.</th>
+                                    <th>Tanggal upload proposal</th>
                                     <th>Nama</th>
                                     <th>Team</th>
                                     <th>Institusi</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @foreach($proposal as $proposal)
+                                @foreach($proposal as $key => $proposal)
                                     <tr>
+                                        <td>{{ $key+1 }}</td>
+                                        <td>{{ $proposal->created_at }}</td>
                                         <td>{{ $proposal->name }}</td>
                                         <td>{{ $proposal->uploader }}</td>
                                         <td>{{ $proposal->institusi }}</td>
+
                                     </tr>
                                 @endforeach
                             </tbody>
