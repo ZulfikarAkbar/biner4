@@ -168,6 +168,7 @@ return [
          */
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+        Emotality\TawkTo\TawkToServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -233,6 +234,7 @@ return [
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         // 'Captcha' => Mews\Captcha\Facades\Captcha::class,
         'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
+        'TawkTo' => Emotality\TawkTo\Facades\TawkTo::class,
     ],
 
 ];

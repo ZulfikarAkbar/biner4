@@ -38,10 +38,11 @@
       21 => 'Illuminate\\View\\ViewServiceProvider',
       22 => 'RealRashid\\SweetAlert\\SweetAlertServiceProvider',
       23 => 'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider',
-      24 => 'App\\Providers\\AppServiceProvider',
-      25 => 'App\\Providers\\AuthServiceProvider',
-      26 => 'App\\Providers\\EventServiceProvider',
-      27 => 'App\\Providers\\RouteServiceProvider',
+      24 => 'Emotality\\TawkTo\\TawkToServiceProvider',
+      25 => 'App\\Providers\\AppServiceProvider',
+      26 => 'App\\Providers\\AuthServiceProvider',
+      27 => 'App\\Providers\\EventServiceProvider',
+      28 => 'App\\Providers\\RouteServiceProvider',
     ),
     'aliases' => 
     array (
@@ -82,6 +83,7 @@
       'View' => 'Illuminate\\Support\\Facades\\View',
       'Alert' => 'RealRashid\\SweetAlert\\Facades\\Alert',
       'NoCaptcha' => 'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha',
+      'TawkTo' => 'Emotality\\TawkTo\\Facades\\TawkTo',
     ),
   ),
   'auth' => 
@@ -604,6 +606,10 @@
   'sweet-alert' => 
   array (
     'autoclose' => 1800,
+  ),
+  'tawkto' => 
+  array (
+    'api_key' => '45e647b63f29fc3a680a3e1b5bcde0e87234fb80',
   ),
   'view' => 
   array (

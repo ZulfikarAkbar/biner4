@@ -205,7 +205,7 @@
 							<ul class="blog-meta">
 								<li><i class="fa fa-clock-o"></i>{{ $berita->tanggal }}</li>
 							</ul>
-							<h3>{{ $berita->kegiatan }}</h3>
+							<h3>{{ substr($berita->kegiatan,0,10) }}</h3>
                             <p>{{ substr($berita->deskripsi,0,30) }}</p>
                             <!-- <a href="blog-single.html" data-toggle="modal" data-target="#ModalExample">Read more</a> -->
                             <a class="btn btn-primary" href="/berita/{{ $berita->slug }}">Lihat selengkapnya</a>
@@ -250,7 +250,7 @@
 					<div class="contact">
 						<i class="fa fa-phone"></i>
 						<h3>Phone</h3>
-						<p>08121213123</p>
+						<p>081298685888</p>
 					</div>
 				</div>
 				<!-- /contact -->
@@ -345,6 +345,19 @@
 	<script type="text/javascript" src="ca/js/jquery.magnific-popup.js"></script>
     <script type="text/javascript" src="ca/js/main.js"></script>
     <script type="text/javascript" src="{{ asset('js/carousel.js') }}"></script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/5ccfa3d9d07d7e0c63920e1f/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
 
 </body>
 

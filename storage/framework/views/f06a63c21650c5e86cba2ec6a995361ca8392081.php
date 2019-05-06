@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>Info | <?php echo e($berita->kegiatan); ?></title>
+	<title>Info Terkini</title>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
@@ -69,40 +69,25 @@
 				</ul>
 				</ul>
 				<!-- /Main navigation -->
-
 			</div>
 		</nav>
 		<!-- /Nav -->
 
-		<!-- header wrapper -->
-		<div class="header-wrapper sm-padding bg-grey">
-			<div class="container">
-				<h2><?php echo e($berita->kegiatan); ?></h2>
-				<!-- <ul class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-					<li class="breadcrumb-item"><a href="index.html#blog">Blog</a></li>
-					<li class="breadcrumb-item active">Single Post</li>
-				</ul> -->
-			</div>
-		</div>
-		<!-- /header wrapper -->
 
+		<!-- /header wrapper -->
 	</header>
 	<!-- /Header -->
 
 	<!-- Blog -->
 	<div id="blog" class="section md-padding">
-
 		<!-- Container -->
 		<div class="container">
-
 			<!-- Row -->
 			<div class="row">
-
 				<!-- Main -->
 				<main id="main" class="col-md-9">
 					<div class="blog">
-                    <h1><strong></strong></h1>
+                        <p><h3><strong><?php echo e($berita->kegiatan); ?></strong></h3></p>
 						<div class="blog-img">
 							<img class="img-responsive" src="<?php echo e(asset('storage/upload_gambar/'.$berita->gambar)); ?>" alt="">
 						</div>
@@ -120,7 +105,7 @@
 							<a href="#"><i class="fa fa-tag"></i>Seminar</a>
 							<a href="#"><i class="fa fa-tag"></i>Bussiness Case Competition</a>
 							<a href="#"><i class="fa fa-tag"></i>IOT Workshop</a>
-							<a href="#"><i class="fa fa-tag"></i>Branding</a>
+							<a href="#"><i class="fa fa-tag"></i>AGRI-COOL-TURE</a>
 							<a href="#"><i class="fa fa-tag"></i>Photography</a>
 						</div>
 
@@ -227,6 +212,19 @@
 	<script type="text/javascript" src="<?php echo e(asset('ca/js/owl.carousel.min.js')); ?>"></script>
 	<script type="text/javascript" src="<?php echo e(asset('ca/js/jquery.magnific-popup.js')); ?>"></script>
 	<script type="text/javascript" src="<?php echo e(asset('ca/js/main.js')); ?>"></script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/5ccfa3d9d07d7e0c63920e1f/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
 
 </body>
 

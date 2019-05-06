@@ -124,6 +124,7 @@ class ComposerStaticInitea9e5526cca4c2ff0a6f0d0cd8908705
         ),
         'E' => 
         array (
+            'Emotality\\TawkTo\\' => 17,
             'Egulias\\EmailValidator\\' => 23,
         ),
         'D' => 
@@ -331,6 +332,10 @@ class ComposerStaticInitea9e5526cca4c2ff0a6f0d0cd8908705
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
+        ),
+        'Emotality\\TawkTo\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/emotality/tawk-laravel/src',
         ),
         'Egulias\\EmailValidator\\' => 
         array (
@@ -606,6 +611,9 @@ class ComposerStaticInitea9e5526cca4c2ff0a6f0d0cd8908705
         'Egulias\\EmailValidator\\Warning\\QuotedString' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/QuotedString.php',
         'Egulias\\EmailValidator\\Warning\\TLD' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/TLD.php',
         'Egulias\\EmailValidator\\Warning\\Warning' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/Warning.php',
+        'Emotality\\TawkTo\\Facades\\TawkTo' => __DIR__ . '/..' . '/emotality/tawk-laravel/src/Facade/TawkTo.php',
+        'Emotality\\TawkTo\\TawkTo' => __DIR__ . '/..' . '/emotality/tawk-laravel/src/TawkTo.php',
+        'Emotality\\TawkTo\\TawkToServiceProvider' => __DIR__ . '/..' . '/emotality/tawk-laravel/src/TawkToServiceProvider.php',
         'Faker\\Calculator\\Iban' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Iban.php',
         'Faker\\Calculator\\Inn' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Inn.php',
         'Faker\\Calculator\\Luhn' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Luhn.php',

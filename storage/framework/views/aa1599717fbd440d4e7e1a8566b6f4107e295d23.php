@@ -88,7 +88,7 @@
                                     <tr>
                                         <td><?php echo e(++$key); ?></td>
                                         <td><?php echo e(date('d-m-Y, H:i', strtotime($berita->created_at))); ?></td>
-                                        <td><?php echo e($berita->kegiatan); ?></td>
+                                        <td><?php echo e(substr($berita->kegiatan,0,10)); ?></td>
                                         <td><?php echo e($berita->tanggal); ?></td>
                                         <td><img width="250px" height="150px" src="<?php echo e(asset('storage/upload_gambar/'.$berita->gambar)); ?>" alt=""></td>
                                         <td style="text-align:justify"><?php echo e(substr($berita->deskripsi,0,20)); ?></td>

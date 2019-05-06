@@ -88,7 +88,7 @@
                                     <tr>
                                         <td>{{ ++$key }}</td>
                                         <td>{{date('d-m-Y, H:i', strtotime($berita->created_at))}}</td>
-                                        <td>{{ $berita->kegiatan }}</td>
+                                        <td>{{ substr($berita->kegiatan,0,10) }}</td>
                                         <td>{{ $berita->tanggal }}</td>
                                         <td><img width="250px" height="150px" src="{{asset('storage/upload_gambar/'.$berita->gambar)}}" alt=""></td>
                                         <td style="text-align:justify">{{ substr($berita->deskripsi,0,20) }}</td>

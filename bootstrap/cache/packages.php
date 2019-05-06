@@ -17,6 +17,17 @@
       0 => 'BeyondCode\\DumpServer\\DumpServerServiceProvider',
     ),
   ),
+  'emotality/tawk-laravel' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Emotality\\TawkTo\\TawkToServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'TawkTo' => 'Emotality\\TawkTo\\Facades\\TawkTo',
+    ),
+  ),
   'fideloper/proxy' => 
   array (
     'providers' => 
