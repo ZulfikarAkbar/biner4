@@ -18,8 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('role')->default("Admin");
             $table->string('name');
             $table->string('institusi');
-            $table->string('phone')->unique();
-            $table->string('email')->unique();
+            $table->string('phone');
+            $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('bukti');

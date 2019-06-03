@@ -97,7 +97,7 @@
 								<li><i class="fa fa-clock-o"></i>{{ $berita->updated_at }}</li>
 							</ul>
 
-							<p>{{ $berita->deskripsi }}</p>
+							<p align="justify">{{ print_r($berita->deskripsi) }}</p>
                         </div>
                         <div class="blog-tags">
 							<h5>Tags :</h5>

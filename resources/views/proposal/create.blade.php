@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('logo.png') }}" alt="">
-    <title>BINER 4.0 | Proposal</title>
+    <title>BINER 4.0 | File</title>
 
     <!-- Bootstrap core CSS-->
     <link href="{{ asset('sb/vendors/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -51,7 +51,7 @@
             <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Upload Proposal') }}</div>
+                <div class="card-header">{{ __('Upload file') }}</div>
 
                 <div class="card-body">
                     <form enctype="multipart/form-data" method="POST" action="{{ route('proposal.store') }}">
@@ -105,13 +105,15 @@
 
                             <div class="col-md-6">
                                 <input id="prop_file" type="file" class="form-control{{ $errors->has('prop_file') ? ' is-invalid' : '' }}" name="prop_file" value="{{ old('prop_file') }}" required autofocus>
-                                <p><strong>Format file:</strong></p>
-                                <p><strong>BINER4.0-BUSSINESS-PROPOSAL_Judul Proposal.pdf</strong></p>
                                 @if ($errors->has('prop_file'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('prop_file') }}</strong>
                                     </span>
                                 @endif
+                                <br><br>
+                                <p><strong>Format file:</strong></p>
+                                <p><strong>BINER4.0-BUSSINESS-FILE_NamaTeam.zip</strong></p>
+                                
                             </div>
                         </div>
 
@@ -126,7 +128,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" onclick="return confirm('Coba periksa kembali form isian, tekan ok jika sudah yakin benar!');" class="btn btn-primary">
                                     {{ __('Submit') }}
                                 </button>
                             </div>

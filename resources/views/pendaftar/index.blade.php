@@ -100,7 +100,7 @@
                                             <form action="{{ route('pendaftar.destroy', $pendaftar->id)}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="hidden" class="btn btn-danger" onclick="return confirm('Anda yakin menghapus pendaftar ini?')"><i class="fa fa-eraser"> Hapus</i></button>
+                                                <button type="hidden" class="btn btn-danger" onclick="return confirm('Anda yakin menghapus pendaftar ini?');"><i class="fa fa-eraser"> Hapus</i></button>
                                             </form>
                                         </td>
                                     </tr>

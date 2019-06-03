@@ -20,18 +20,14 @@ class beritaController extends Controller
     public function show($slug)
     {
         $berita = berita::where('slug',$slug)->first();
-        // $rincians = Rincian::where('permohonan_id',$permohonan->id)->get();
         if(empty($berita)) abort (404);
-        // if($permohonan->status==9) abort (404);
-        // if($permohonan->status==1) abort (404);
-        // dd($permohonan);
         return view('show_berita', compact('berita'));
     }
     public function store(Request $request){
         $this->validate($request,[
             'kegiatan'=>['required'],
             'tanggal'=>['required'],
-            'gambar'=>['required','mimes:jpeg,jpg,'],
+            'gambar'=>['required','mimes:jpg,jpeg'],
             'deskripsi'=>['required'],
         ]);
         $slug = str_slug($request->kegiatan, '-');
@@ -61,7 +57,7 @@ class beritaController extends Controller
         $this->validate($request,[
             'kegiatan'=>['required'],
             'tanggal'=>['required'],
-            'gambar'=>['required','mimes:jpeg,jpg,'],
+            'gambar'=>['required','mimes:jpg,jpeg'],
             'deskripsi'=>['required'],
 
         ]);

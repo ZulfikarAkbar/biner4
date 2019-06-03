@@ -53,7 +53,7 @@
             <div class="card mb-3">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
-                    Proposal Masuk
+                    File Masuk
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -61,23 +61,23 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Tanggal upload proposal</th>
+                                    <th>Tanggal upload file</th>
                                     <th>Nama</th>
                                     <th>Nama Team</th>
                                     <th>Institusi</th>
-                                    <th>Proposal</th>
-                                    <th>Hapus proposal</th>
+                                    <th>File</th>
+                                    <th>Hapus file</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Tanggal upload proposal</th>
+                                    <th>Tanggal upload file</th>
                                     <th>Nama</th>
                                     <th>Nama Team</th>
                                     <th>Institusi</th>
-                                    <th>Proposal</th>
-                                    <th>Hapus proposal</th>
+                                    <th>File</th>
+                                    <th>Hapus file</th>
                                 </tr>
                             </tfoot>
                             <tbody>
@@ -93,7 +93,7 @@
                                         <form action="{{ route('prop.destroy', $prop->id)}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="hidden" class="btn btn-danger" onclick="return confirm('Anda yakin menghapus proposal ini?')"><i class="fa fa-eraser"> Hapus</i></button>
+                                                <button type="hidden" class="btn btn-danger" onclick="return confirm('Anda yakin menghapus file ini?');"><i class="fa fa-eraser"> Hapus</i></button>
                                         </form>
                                         </td>
                                     </tr>

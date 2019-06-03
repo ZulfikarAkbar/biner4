@@ -29,14 +29,14 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js')}}" defer></script>
+    <!--<script src="{{ asset('js/app.js')}}" defer></script>-->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!--<link href="{{ asset('css/app.css') }}" rel="stylesheet">-->
 
   </head>
 
@@ -62,79 +62,82 @@
                             </<div>
 
                         </div>
-                    @elseif(auth()->user()->isSeminar())
+                    @else
+                    <div class="card-header">Pemberitahuan</div>
+                                <div class="card-body">
+                                    <p>
+                                        <strong>Kamu berhasil terdaftar pada acara BINER 4.0 :</strong>
+                                        <ul>
+                                                @if(auth()->user()->isSeminar())
+                                                <li><strong>Seminar Technology</strong></li>
+                                                @endif
+                                                @if(auth()->user()->isWorkshop_1())
+                                                <li><strong>Workshop Technology Batch 1</strong></li>
+                                                @endif
+                                                @if(auth()->user()->isWorkshop_2())
+                                                <li><strong>Workshop Techonology Batch 2</strong></li>
+                                                @endif
+                                                @if(auth()->user()->isCompetition())
+                                                <li><strong>Bussiness Case Competition</strong></li>
+                                                @endif
+                                        </ul>
+                                        {{-- @if(auth()->user()->isSeminar())
+                                            @
+
+                                        @endif
+                                        <td><a class="btn btn-success" download="{{asset('storage/upload_tiket/'.$seminar->tiket)}}" width="250px" height="150px" href="{{asset('storage/upload_tiket/'.$seminar->tiket)}}" alt=""><i class="fa fa-file-download"> Download tiket</i></a></td>
+                                        <td><a class="btn btn-success" download="{{asset('storage/upload_tiket/'.$seminar->tiket)}}" width="250px" height="150px" href="{{asset('storage/upload_tiket/'.$seminar->tiket)}}" alt=""><i class="fa fa-file-download"> Download tiket</i></a></td> --}}
+                                        <br><br>
+                                    
+                                    </p>
+                                </div>
+                        </div>
+                    @endif
+                    <img src="{{asset('logo.png')}}" height='300' width="700">
+                    {{-- @if(auth()->user()->isSeminar())
                         <div class="card-header">Pemberitahuan</div>
                                 <div class="card-body">
                                     <p>
                                         <strong>Kamu berhasil terdaftar pada acara Seminar BINER 4.0!</strong>
                                         <br><br>
-                                        <!-- Segera selesaikan pembayaran!
-                                        <br><br>
-                                            Nama Bank             : <strong>Mandiri</strong>
-                                            <br>
-                                            Atas nama             : <strong>Suga</strong>
-                                            <br>
-                                            No. Rekening          : <strong>442184214</strong>
-                                            <br>
-                                            Konfirmasi pembayaran : <strong>087808085169</strong> -->
+                                    
                                     </p>
                                 </div>
                         </div>
-                    @elseif(auth()->user()->isWorkshop_1())
+                        @endif
+                    @if(auth()->user()->isWorkshop_1())
                         <div class="card-header">Pemberitahuan</div>
                                 <div class="card-body">
                                     <p>
                                         <strong>Kamu berhasil terdaftar pada acara Workshop Batch I BINER 4.0!</strong>
                                         <br><br>
-                                        <!-- Segera selesaikan pembayaran!
-                                        <br><br>
-                                            Nama Bank             : <strong>Mandiri</strong>
-                                            <br>
-                                            Atas nama             : <strong>Suga</strong>
-                                            <br>
-                                            No. Rekening          : <strong>442184214</strong>
-                                            <br>
-                                            Konfirmasi pembayaran : <strong>087808085169</strong> -->
+                                  
                                     </p>
                                 </div>
                         </div>
-                    @elseif(auth()->user()->isWorkshop_2())
+                        @endif
+                    @if(auth()->user()->isWorkshop_2())
                         <div class="card-header">Pemberitahuan</div>
                                 <div class="card-body">
                                     <p>
                                         <strong>Kamu berhasil terdaftar pada acara Workshop Batch II BINER 4.0!</strong>
                                         <br><br>
-                                        <!-- Segera selesaikan pembayaran!
-                                        <br><br>
-                                            Nama Bank             : <strong>Mandiri</strong>
-                                            <br>
-                                            Atas nama             : <strong>Suga</strong>
-                                            <br>
-                                            No. Rekening          : <strong>442184214</strong>
-                                            <br>
-                                            Konfirmasi pembayaran : <strong>087808085169</strong> -->
+                                    
                                     </p>
                                 </div>
                         </div>
-                    @else(auth()->user()->isCompetition())
+                        @endif
+                    @if(auth()->user()->isCompetition())
                         <div class="card-header">Pemberitahuan</div>
                                 <div class="card-body">
                                     <p>
                                         <strong>Kamu berhasil terdaftar pada acara Bussiness Case Competition BINER 4.0!</strong>
                                         <br><br>
-                                        <!-- Segera selesaikan pembayaran!
-                                        <br><br>
-                                            Nama Bank             : <strong>Mandiri</strong>
-                                            <br>
-                                            Atas nama             : <strong>Suga</strong>
-                                            <br>
-                                            No. Rekening          : <strong>442184214</strong>
-                                            <br>
-                                            Konfirmasi pembayaran : <strong>087808085169</strong> -->
+                                  
                                     </p>
                                 </div>
                         </div>
-                    @endif
+                    @endif --}}
                             </div>
                         </div>
                     </div>
@@ -169,22 +172,22 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('sb/vendors/jquery/jquery.min.js')}}"></script>
-    <script src="{{ asset('vendors/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('sb/vendors/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="{{ asset('vendors/jquery-easing/jquery.easing.min.js')}}"></script>
+    <script src="{{ asset('sb/vendors/jquery-easing/jquery.easing.min.js')}}"></script>
 
     <!-- Page level plugin JavaScript-->
-    <script src="{{ asset('vendors/chart.js/Chart.min.js')}}"></script>
-    <script src="{{ asset('vendors/datatables/jquery.dataTables.js')}}"></script>
-    <script src="{{ asset('vendors/datatables/dataTables.bootstrap4.')}}"></script>
+    <script src="{{ asset('sb/vendors/chart.js/Chart.min.js')}}"></script>
+    <script src="{{ asset('sb/vendors/datatables/jquery.dataTables.js')}}"></script>
+    <script src="{{ asset('sb/vendors/datatables/dataTables.bootstrap4.js')}}"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('sb/js/sb-admin.min.js')}}"></script>
 
     <!-- Demo scripts for this page-->
-    <script src="{{ asset('js/demo/datatables-demo.js')}}"></script>
-    <script src="{{ asset('js/demo/chart-area-demo.js')}}"></script>
+    <script src="{{ asset('sb/js/demo/datatables-demo.js')}}"></script>
+    <script src="{{ asset('sb/js/demo/chart-area-demo.js')}}"></script>
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
         var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

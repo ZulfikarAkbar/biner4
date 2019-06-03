@@ -42,19 +42,33 @@ class User extends Authenticatable
         return false;
     }
     public function isSeminar(){
-        if($this->role=="Seminar") return true;
+        $users = User::where('name',$this->name)->where('phone',$this->phone)->get();
+        foreach  ($users as $user) {
+            if($user->role=="Seminar") return true;
+        }
+        // if($this->role=="Seminar") return true;
         return false;
     }
     public function isCompetition(){
-        if($this->role=="BussinessCaseCompetition") return true;
+        $users = User::where('name',$this->name)->where('phone',$this->phone)->get();
+        foreach  ($users as $user) {
+            if($user->role=="BussinessCaseCompetition") return true;
+        }
+        // if($this->role=="BussinessCaseCompetition") return true;
         return false;
     }
     public function isWorkshop_1(){
-        if($this->role=="WorkshopBatch_1") return true;
+        $users = User::where('name',$this->name)->where('phone',$this->phone)->get();
+        foreach  ($users as $user) {
+            if($user->role=="WorkshopBatch_1") return true;
+        }
         return false;
     }
     public function isWorkshop_2(){
-        if($this->role=="WorkshopBatch_2") return true;
+        $users = User::where('name',$this->name)->where('phone',$this->phone)->get();
+        foreach  ($users as $user) {
+            if($user->role=="WorkshopBatch_2") return true;
+        }
         return false;
     }
     public function beritas()

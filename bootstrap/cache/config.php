@@ -4,7 +4,7 @@
     'name' => 'BINER 4.0 | Technology and Innovation in Millenial Era',
     'env' => 'local',
     'debug' => true,
-    'url' => 'http://localhost:8000',
+    'url' => 'http://www.binerdefaultunj.com/',
     'asset_url' => NULL,
     'timezone' => 'Asia/Jakarta',
     'locale' => 'id',
@@ -179,7 +179,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => '/home/asuspc/biner4.0/storage/framework/cache/data',
+        'path' => '/home/u5392938/biner/storage/framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -286,7 +286,7 @@
       'sqlite' => 
       array (
         'driver' => 'sqlite',
-        'database' => 'biner',
+        'database' => 'u5392938_biner',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -295,9 +295,9 @@
         'driver' => 'mysql',
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'biner',
-        'username' => 'root',
-        'password' => '',
+        'database' => 'u5392938_biner',
+        'username' => 'u5392938_biner',
+        'password' => 'VIb14478pPrs',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
@@ -314,9 +314,9 @@
         'driver' => 'pgsql',
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'biner',
-        'username' => 'root',
-        'password' => '',
+        'database' => 'u5392938_biner',
+        'username' => 'u5392938_biner',
+        'password' => 'VIb14478pPrs',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -328,9 +328,9 @@
         'driver' => 'sqlsrv',
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'biner',
-        'username' => 'root',
-        'password' => '',
+        'database' => 'u5392938_biner',
+        'username' => 'u5392938_biner',
+        'password' => 'VIb14478pPrs',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -373,13 +373,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => '/home/asuspc/biner4.0/storage/app',
+        'root' => '/home/u5392938/biner/storage/app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => '/home/asuspc/biner4.0/storage/app/public',
-        'url' => 'http://localhost:8000/storage',
+        'root' => '/home/u5392938/biner/storage/app/public',
+        'url' => 'http://www.binerdefaultunj.com//storage',
         'visibility' => 'public',
       ),
       's3' => 
@@ -424,13 +424,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => '/home/asuspc/biner4.0/storage/logs/laravel.log',
+        'path' => '/home/u5392938/biner/storage/logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => '/home/asuspc/biner4.0/storage/logs/laravel.log',
+        'path' => '/home/u5392938/biner/storage/logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -494,7 +494,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => '/home/asuspc/biner4.0/resources/views/vendor/mail',
+        0 => '/home/u5392938/biner/resources/views/vendor/mail',
       ),
     ),
     'log_channel' => NULL,
@@ -587,7 +587,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => '/home/asuspc/biner4.0/storage/framework/sessions',
+    'files' => '/home/u5392938/biner/storage/framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -615,9 +615,9 @@
   array (
     'paths' => 
     array (
-      0 => '/home/asuspc/biner4.0/resources/views',
+      0 => '/home/u5392938/biner/resources/views',
     ),
-    'compiled' => '/home/asuspc/biner4.0/storage/framework/views',
+    'compiled' => '/home/u5392938/biner/storage/framework/views',
   ),
   'trustedproxy' => 
   array (

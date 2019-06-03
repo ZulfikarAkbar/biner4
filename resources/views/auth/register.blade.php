@@ -31,15 +31,24 @@
 				<div class="login100-pic js-tilt" data-tilt>
 					<img src="Login/images/img-01.png" alt="IMG">
 				</div>
+				
+				
 
-				<form class="login100-form" method="POST" enctype="multipart/form-data" action="{{ route('register') }}">
+				<form  class="login100-form" method="POST" enctype="multipart/form-data" action="{{ route('register') }}">
                     {{ csrf_field() }}
+                    
 					<span class="login100-form-title">
 						Pendaftaran
                     </span>
-
+                        <p style="color:red;font-size:14px">Sebelum melakukan pendaftaran, silahkan lakukan pembayaran terlebih dahulu. <a href="http://binerdefaultunj.com/berita/pembayaran-pendaftaran" style="color:cornflowerblue" target="_blank"><u><strong>Info Pembayaran</strong></u></a>.</p>
+                        
                     <div class="wrap-input100">
-						<input class="input100 form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Nama" id="name" type="text" name="name" value="{{ old('name')}}" required autofocus>
+						<input class="input100 form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Nama Lengkap" id="name" type="text" name="name" value="{{ old('name')}}" required autofocus>
+						@if ($errors->has('name'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                        @endif
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
@@ -48,6 +57,11 @@
 
                     <div class="wrap-input100">
 						<input class="input100 form-control{{ $errors->has('institusi') ? ' is-invalid' : '' }}" placeholder="Institusi/Universitas" id="institusi" type="text" name="institusi" value="{{ old('institusi')}}" required autofocus>
+						@if ($errors->has('institusi'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('institusi') }}</strong>
+                                    </span>
+                                @endif
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-building" aria-hidden="true"></i>
@@ -55,13 +69,18 @@
                     </div>
 
                     <div class="wrap-input100">
-						<select class="input100 form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" placeholder="Kluster Pendaftaran" id="role" type="text" name="role" value="{{ old('role') }}" required autofocus>
-                            <option value="">Kluster Pendaftaran</option>
-                            <option value="Seminar">Seminar</option>
-                            <option value="WorkshopBatch_1">Workshop (Batch I)</option>
-                            <option value="WorkshopBatch_2">Workshop (Batch II)</option>
-                            <option value="BussinessCaseCompetition">Bussiness Case Competition</option>
+						<select class="input100 form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" placeholder="Acara yang diikuti" id="role" type="text" name="role" value="{{ old('role') }}" required autofocus>
+                            <option value="" selected hidden disabled>Acara yang diikuti</option>
+                            <option value="Seminar">Seminar Technology</option>
+                            <option value="WorkshopBatch_1">Workshop Technology (Batch I)</option>
+                            <!--<option value="WorkshopBatch_2">Workshop (Batch II)</option>-->
+                            <option value="BussinessCaseCompetition">IoT Bussiness Case Competition</option>
                         </select>
+                        @if ($errors->has('role'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('role') }}</strong>
+                                    </span>
+                                @endif
                         <span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-building" aria-hidden="true"></i>
@@ -70,6 +89,11 @@
 
 					<div class="wrap-input100  ">
 						<input class="input100 form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email" id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
+						@if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -78,6 +102,11 @@
 
                     <div class="wrap-input100  ">
                         <input class="input100 form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" placeholder="Nomor Handphone" id="phone" type="number" name="phone" value="{{ old('phone') }}" required autofocus>
+						@if ($errors->has('phone'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('phone') }}</strong>
+                                    </span>
+                                @endif
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-phone-square" aria-hidden="true"></i>
@@ -86,6 +115,11 @@
 
 					<div class="wrap-input100  ">
                         <input class="input100 form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" placeholder="Password" id="password" type="password" name="password" required autofocus>
+						@if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -102,18 +136,52 @@
 
                     <div class="wrap-input100  ">
 						<input class="input100 form-control{{ $errors->has('bukti') ? ' is-invalid' : '' }}" placeholder="Bukti Pembayaran" id="bukti" type="file" name="bukti" required autofocus>
+						@if ($errors->has('bukti'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('bukti') }}</strong>
+                                    </span>
+                                @endif
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-file" aria-hidden="true"></i>
 						</span>
                         <!-- (format bukti pembayaran khusus : namaketua_namapembayar.jpg) -->
                     </div>
-                    <p>
-                        *) Mohon Upload Bukti Pembayaran
+                    <p style="color:crimson">
+                        <strong>*) Mohon Upload Bukti Pembayaran berformat (.jpg)</strong>
                     </p>
-                    <p style="color:blue">
-                        Contoh: namaPembayar_institusi_klusterPendaftaran.jpg
+                    
+                    <div class="wrap-input100">
+						<input class="input100 form-control{{ $errors->has('nama_pembayar') ? ' is-invalid' : '' }}" placeholder="Nama Pembayar" id="nama_pembayar" type="text" name="nama_pembayar" value="{{ old('nama_pembayar')}}" required autofocus>
+						@if ($errors->has('nama_pembayar'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                        @endif
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <p style="color:crimson">
+                        <strong>*) a.n. rekening pengirim</strong>
                     </p>
+                    
+                    <!--<p style="color:blue">-->
+                    <!--    <strong>Penamaan file upload:  </strong>-->
+                    <!--</p>-->
+                    <!--<p style="color:blue">-->
+                    <!--    <i>namaLengkap_namaLengkapPembayar</i>-->
+                    <!--</p>-->
+                    <!--<p style="color:blue">-->
+                    <!--    <i>_institusi_klusterPendaftaran_</i>-->
+                    <!--</p>-->
+                    <!--<p style="color:blue">-->
+                    <!--    <i>dd/mm/yyyy(tanggalPembayaran)_</i>-->
+                    <!--</p>-->
+                    <!--<p style="color:blue">-->
+                    <!--    <i>hh:mm:ss(jamPembayaran).jpg</i>-->
+                    <!--</p>-->
                     <br>
                     <div class="form-group">
                         {!! NoCaptcha::renderJs() !!}
@@ -123,9 +191,11 @@
 
                     Sudah pernah mendaftar?
                     <a style="color:cornflowerblue" href="{{ route('login') }}"><strong>Login di sini</strong></a>
-
+                    <!--<br>-->
+                    <!--Belum melakukan pembayaran?-->
+                    <!--<a style="color:cornflowerblue" href="{{ url('berita/pembayaran-pendaftaran') }}"><strong>Cara pembayaran</strong></a>-->
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button onclick="return confirm('Coba periksa kembali form isian, tekan ok jika sudah yakin!');" class="login100-form-btn">
 							Daftar
                         </button>
                     </div>

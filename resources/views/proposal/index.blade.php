@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('logo.png') }}" alt="">
-    <title>BINER 4.0 | Proposal</title>
+    <title>BINER 4.0 | File</title>
 
     <!-- Bootstrap core CSS-->
     <link href="{{ asset('sb/vendors/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -50,7 +50,7 @@
 
             <div class="container-fluid">
             <!-- DataTables Example -->
-            <a class="btn btn-success" href="/proposal/create"><i class="fa fa-plus"> Upload Proposal</i></a>
+            <a class="btn btn-success" href="/proposal/create"><i class="fa fa-plus"> Upload File</i></a>
             <br><br>
             <div class="card mb-3">
                 <div class="card-header">
@@ -63,8 +63,8 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Tanggal upload proposal</th>
-                                    <th>Nama</th>
+                                    <th>Tanggal upload file</th>
+                                    <!--<th>Nama</th>-->
                                     <th>Team</th>
                                     <th>Institusi</th>
                                 </tr>
@@ -72,8 +72,8 @@
                             <tfoot>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Tanggal upload proposal</th>
-                                    <th>Nama</th>
+                                    <th>Tanggal upload file</th>
+                                    <!--<th>Nama</th>-->
                                     <th>Team</th>
                                     <th>Institusi</th>
                                 </tr>
@@ -83,7 +83,7 @@
                                     <tr>
                                         <td>{{ $key+1 }}</td>
                                         <td>{{ $proposal->created_at }}</td>
-                                        <td>{{ $proposal->name }}</td>
+                                        <!--<td>{{ $proposal->name }}</td>-->
                                         <td>{{ $proposal->uploader }}</td>
                                         <td>{{ $proposal->institusi }}</td>
 

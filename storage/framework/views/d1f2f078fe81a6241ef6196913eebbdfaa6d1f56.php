@@ -324,7 +324,7 @@
 	<!-- /Footer -->
 
 	<!-- Back to top -->
-	<div id="back-to-top"></div>
+	<!-- <div id="back-to-top"></div> -->
 	<!-- /Back to top -->
 
 	<!-- Preloader -->

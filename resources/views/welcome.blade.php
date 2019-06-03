@@ -33,12 +33,22 @@
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 30px; height: 0; overflow: hidden;
+        }
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -47,7 +57,7 @@
 	<header id="home">
 
 		<!-- Background Image -->
-		<div class="bg-img" style="background-image: url('ca/img/background1.jpg');">
+		<div class="bg-img" style="background-image: url('ca/img/b2.jpg');">
 			<div class="overlay"></div>
 		</div>
 		<!-- /Background Image -->
@@ -77,8 +87,13 @@
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<li><a href="{{ url('/') }}">Home</a></li>
 					<li><a href="#about">Acara</a></li>
-					<li><a href="#contact">Hubungi kami</a></li>
-                    <li><a href="{{ route('login') }}"><i class="fa fa-user"> login</i></a></li>
+					@if($berita->count()==0)
+                    @else
+					<li><a href="#blog">Info Terkini</a></li>
+				    @endif
+				    <li><a href="#video">Teaser Video</a></li>
+					<li><a href="#contact">Hubungi Kami</a></li>
+                    <li><a href="{{ route('login') }}"><i class="fa fa-user"></i> Login</a></li>
 				</ul>
 				<!-- /Main navigation -->
 
@@ -91,11 +106,12 @@
 			<div class="container">
 				<div class="row">
 
-					<!-- home content -->
-					<div class="col-md-10 col-md-offset-1" style="text-align:center">
+				<!-- home content -->
+					<div class="col-md-10 col-md-offset-1">
 						<div class="home-content">
-                            <img class="img-responsive" width="100%" height="100%" class="logo" src="{{ asset('logo.png') }}" alt="logo">
-							<!-- <p class="white-text">Technology and Innovation in Millenial Era
+						   <img class="logo-alt img-responsive" src="{{ asset('logo.png') }}" alt="logo">
+							<!-- <h1 class="white-text">BINER 4.0</h1>
+							<p class="white-text">Technology and Innovation in Millenial Era
 							</p> -->
                             <!-- <button class="white-btn">Get Started!</button> -->
                             @if (Route::has('register'))
@@ -134,9 +150,9 @@
 					<div class="about">
 						<i class="fa fa-cogs"></i>
 						<h3>Seminar</h3>
-						<p>Seminar yang berfokus pada IoT di bidang industri pertanian yang akan dihadiri oleh pemateri berkompeten serta menarik, dibuka untuk mahasiswa dan umum.
-						Seminar ini mengangkat tema "AGRI-COOL-TURE" One Step Closer Towards Smart Farming 4.0 Indonesia.</p>
-						<!-- <a href="#">Read more</a> -->
+						{{-- <p>Seminar yang berfokus pada IoT di bidang industri pertanian yang akan dihadiri oleh pemateri berkompeten serta menarik, dibuka untuk mahasiswa dan umum.
+						Seminar ini mengangkat tema "AGRI-COOL-TURE" One Step Closer Towards Smart Farming 4.0 Indonesia.</p> --}}
+						<a href="{{ url('rangkaian-acara/seminar') }}">Read more</a>
 					</div>
 				</div>
 				<!-- /about -->
@@ -146,8 +162,8 @@
 					<div class="about">
 						<i class="fa fa-magic"></i>
 						<h3>Workshop</h3>
-						<p>Merupakan pelatihan dasar untuk membuat IOT di bidang pertanian</p>
-						<!-- <a href="#">Read more</a> -->
+						{{-- <p>Merupakan pelatihan dasar untuk membuat IOT di bidang pertanian</p> --}}
+						<a href="{{ url('rangkaian-acara/workshop') }}">Read more</a>
 					</div>
 				</div>
 				<!-- /about -->
@@ -157,9 +173,9 @@
 					<div class="about">
 						<i class="fa fa-mobile"></i>
 						<h3>Bussiness Case Competition</h3>
-						<p>Kompetisi yang mewadahi peserta dalam mengembangkan ide atau rancangan
-						bisnis yang kreatif dan inovatif dalam sektor pertanian.</p>
-						<!-- <a href="#">Read more</a> -->
+						{{-- <p>Kompetisi yang mewadahi peserta dalam mengembangkan ide atau rancangan
+						bisnis yang kreatif dan inovatif dalam sektor pertanian.</p> --}}
+						<a href="{{ url('rangkaian-acara/kompetisi') }}">Read more</a>
 					</div>
 				</div>
 				<!-- /about -->
@@ -177,36 +193,28 @@
     @if($berita->count()==0)
     @else
 	<div id="blog" class="section md-padding bg-grey">
-
         <!-- Container -->
-
 		<div class="container">
-
 			<!-- Row -->
 			<div class="row">
-
                 <!-- Section header -->
-
-
 				<div class="section-header text-center">
 					<h2 class="title">Info Terkini</h2>
 				</div>
                 <!-- /Section header -->
                 @foreach($berita as $berita)
-
-
 				<!-- blog -->
 				<div class="col-md-4">
 					<div class="blog">
 						<div class="blog-img" style="text-align:center">
-                        <img  width=350px height=200px src="{{asset('storage/upload_gambar/'.$berita->gambar)}}" alt="">
+                        <img  width=320px height=200px src="{{asset('storage/upload_gambar/'.$berita->gambar)}}" alt="">
 						</div>
 						<div class="blog-content">
 							<ul class="blog-meta">
 								<li><i class="fa fa-clock-o"></i>{{ $berita->tanggal }}</li>
 							</ul>
-							<h3>{{ substr($berita->kegiatan,0,10) }}</h3>
-                            <p>{{ substr($berita->deskripsi,0,30) }}</p>
+							<h3>{{ substr($berita->kegiatan,0,11) }}</h3>
+                            <!--<p>{{ substr($berita->deskripsi,0,30) }}</p>-->
                             <!-- <a href="blog-single.html" data-toggle="modal" data-target="#ModalExample">Read more</a> -->
                             <a class="btn btn-primary" href="/berita/{{ $berita->slug }}">Lihat selengkapnya</a>
 						</div>
@@ -214,20 +222,28 @@
                 </div>
                 @endforeach
 				<!-- /blog -->
-
 			</div>
 			<!-- /Row -->
 		</div>
         <!-- /Container -->
-
-
-
 	</div>
     @endif
-
-
-
-
+    
+        <!-- Container -->
+        <div id="video" class="container">
+            <!-- Row -->
+            <div class="row">
+                <!-- Section-header -->
+                <div class="section-header text-center">
+                    <h2 class="title">Teaser Video</h2>
+                </div>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/233xG45gMcI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <!-- /Row -->
+        </div>
+        <!-- /Container -->
 
 
 	<!-- Contact -->
@@ -250,7 +266,8 @@
 					<div class="contact">
 						<i class="fa fa-phone"></i>
 						<h3>Phone</h3>
-						<p>081298685888</p>
+						<p>081298685888 (Alfachran)</p>
+						<p>082261162639 (Trisna)</p>
 					</div>
 				</div>
 				<!-- /contact -->
@@ -301,14 +318,14 @@
 					<!-- footer follow -->
 					<ul class="footer-follow">
 
-						<li><a href="https://instagram.com/default_unj"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="https://www.instagram.com/binerunj/?hl=id"><i class="fa fa-instagram"></i></a></li>
 
 					</ul>
 					<!-- /footer follow -->
 
 					<!-- footer copyright -->
 					<div class="footer-copyright">
-						<p>Copyright © 2017. All Rights Reserved. Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+					<p>Copyright © All Rights Reserved.</p>
 					</div>
 					<!-- /footer copyright -->
 
@@ -324,7 +341,7 @@
 	<!-- /Footer -->
 
 	<!-- Back to top -->
-	<div id="back-to-top"></div>
+	<!-- <div id="back-to-top"></div> -->
 	<!-- /Back to top -->
 
 	<!-- Preloader -->
